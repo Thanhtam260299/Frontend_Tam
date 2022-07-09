@@ -1,0 +1,18 @@
+.content-footed {
+    background-color: yellow;
+}
+
+.hear1 {
+    text-align: center;
+    background-color: green;
+    display: inline-block;
+    margin: 0 auto;
+}
+
+* {
+    color: blue;
+}
+
+.content {
+    letter-spacing: 2px;
+}
