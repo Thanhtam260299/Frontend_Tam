@@ -1,0 +1,25 @@
+* {
+    margin: 4px;
+    padding: 0;
+}
+
+h2 {
+    margin: 0 auto;
+    text-align: center;
+    width: 450px;
+    background-color: green;
+    color: #fff;
+    height: 40px;
+    line-height: 40px;
+}
+
+p {
+    color: blue;
+    line-height: 1.5;
+    font-size: 17px;
+}
+
+p.content-footer {
+    background-color: yellow;
+    font-weight: 600;
+}

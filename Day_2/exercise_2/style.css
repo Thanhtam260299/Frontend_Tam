@@ -1,0 +1,64 @@
+.box {
+    width: 150px;
+    height: 150px;
+    background-color: green;
+    position: absolute;
+    text-align: center;
+    line-height: 150px;
+}
+
+.box1 {
+    top: 0;
+    left: 0;
+}
+
+.box2 {
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%); 
+}
+
+.box3 {
+    bottom: 0;
+    left: 0;
+}
+
+.box4 {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
+
+.boxi {
+    width: 100px;
+    height: 75px;
+    background-color: red;
+    text-align: center;
+    line-height: 75px;
+    position: absolute;
+}
+
+.box5 {
+    left: 0;
+    top: 0;
+    transform: translate(-100%,-100%);
+}
+
+.box6 {
+    top: 0;
+    right: 0;
+    transform: translate(100%,-100%);
+}
+
+.box7 {
+    bottom: 0;
+    left: 0;
+    transform: translate(-100%,100%);
+}
+
+.box8 {
+    bottom: 0;
+    right: 0;
+    transform: translate(100%,100%);    
+}
+

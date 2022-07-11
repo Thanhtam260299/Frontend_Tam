@@ -1,0 +1,16 @@
+.content {
+    width: 450px;
+    height: 150px;
+    background-color: rgb(153, 8, 136);
+    text-align: center;
+    color: azure;
+    margin: auto 0;
+    font-family: 'Miriam Libre', sans-serif;
+}
+
+p {
+    /* margin: auto 0; */
+    display: inline-block;
+    margin-top: 10%;
+}
+

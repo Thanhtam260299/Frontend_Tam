@@ -1,0 +1,15 @@
+.main {
+    border: 1px solid red;
+    margin: 0px auto;
+    width: 458px;   
+}
+
+h2 {
+    margin: 0 auto;
+    text-align: center;
+    width: 450px;
+    height: 40px;
+    line-height: 40px;
+    border: 2px solid green;
+    margin: 2px;
+}
