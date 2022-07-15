@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.container {
+    max-width: 1200px;
+    margin: 0px auto;
+}
+
+header {
+    text-align: center;
+    font-weight: 600;
+    padding: 20px 0 ;
+    font-size: 30px;
+}
+
+main {
+    width: 100%;
+    font-size: 0;
+    margin-top: 10px;
+    border-bottom: 1px solid;
+}
+
+a {
+    color: blue;
+}
+
+menu li {
+    display: inline-block;
+    padding: 0 50px;
+    list-style-type: none;
+}
+
+menu ul.list-menu {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+}
+
+menu {
+    text-align: center;
+}
+
+main .section-common {
+    width: 20%;
+    display: inline-block;
+    font-size: 15px;
+    list-style-type: none;
+    text-align: center;
+    padding-top: 20px;
+}
+
+main .main-center {
+    width: 60%;
+    display: inline-block;
+    font-size: 15px;
+    vertical-align: top;
+    border-left: 1px dashed;
+    border-right: 1px dashed;
+    text-align: center;
+    padding: 0 20px;
+}
+
+main .img-common {
+    width: 60%;
+}
+
+main .main-header {
+        color: #000;
+        font-size: 21px;
+        font-weight: 600;
+        margin-top: 30px;
+        display: inline-block;
+}
+
+main .body-content {
+    text-align: justify;
+    padding-top: 27px;
+}
+
+main .body-content2 {
+    text-align: justify;
+    padding-top: 10px;
+}
+
+main .content2-padding {
+    padding-bottom: 14px;
+}
+
+main .main-content-common {
+    width: 60%;
+    margin: 0 auto;
+    text-align: justify;
+}
+
+main .list-body {
+    padding-top: 15px;
+}
+
+.footer-content {
+    text-align: center;
+    padding-top: 10px;
+}
