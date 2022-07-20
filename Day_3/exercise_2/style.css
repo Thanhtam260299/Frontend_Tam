@@ -14,7 +14,7 @@ body {
 
 .container {
     width: 600px;
-    height: 750px;
+    height: 680px;
     text-align: center;
     margin: 50px auto;
     box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.5);
@@ -91,27 +91,44 @@ i.fa-solid.fa-angle-down {
     padding-bottom: 10px;
 }
 
-.margin-underlined {
-    margin-top: -10px;
+main {
+    width: 68%;
+    margin: 0 auto;
+    padding: 40px 0;
 }
 
-.fa-angle-down {
-    position: absolute;
-    bottom: 0;
-    right: 0;
+input {
+    text-indent: 10px;
+    font-size: 15px;
 }
 
-.underlined {
-    border-bottom: 1px solid;
-}
-
-button {
+label, input, select {
+    display: block;
+    text-align: left;
+    padding: 13px 0;
     border: none;
-    padding: 25px 80px;
-    border-radius: 38px;
-    margin-top: 40px;
-    color: #fff;
-    font-weight: 600;
-    background: rgb(11, 11, 102);
-    box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.5);
+    outline: none;
+}
+
+input,select {
+    border-bottom: 1px solid;
+    width: 100%;
+    
+}
+
+.submit  {
+    border: none;
+    text-align: center;
+    padding: 20px 20px;
+    display: inline-block;
+    width: 200px;
+    background-color: rgb(11, 11, 102);
+    border-radius: 34px;
+    font-size: 15px;
+    color: white;
+    margin-top: 30px;
+}
+
+option {
+    height: 30px;
 }

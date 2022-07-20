@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercise 1</title>
     <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="../exercise_3/icon/fontawesome-free-6.1.1-web/css/all.min.css">
+    <link rel="stylesheet" href="../exercise_2/icon/fontawesome-free-6.1.1-web/css/all.min.css">
 </head>
 <body>
     <div class="container">
@@ -17,20 +17,25 @@
         </header>
 
         <main>
-            <ul>
-                <li class="input">Name</li>
-                <li class="underlined"><input type="text"></li>
-                <li class="input">Link to resource</li>
-                <li class="underlined"><input type="text"></li>
-                <li class="input">Category</li>
-                <li class="underlined margin-underlined"><input type="text"><i class="fa-solid fa-angle-down"></i></li>
-            </ul>
+            <form action="" class="main">
+                <label for="Name">Name</label>
+                <input type="text" id="name" placeholder="Name">
+                <label for="link">Link to resource</label>
+                <input type="link" id="link" placeholder="Link">
+                <label for="category">Category</label>
+                <select>
+                    <option value="0">Select category</option>
+                    <option value="1">Audi</option>
+                    <option value="2">BMW</option>
+                    <option value="3">Citroen</option>
+                    <option value="4">Ford</option>
+                    <option value="5">Honda</option>
+                    <option value="6">Jaguar</option>
+                </select>
+                <input type="submit" class="submit">
+
+            </form>
         </main>
-
-        <footer>
-            <button>Submit</button>
-        </footer>
-
     </div>
 </body>
 </html>
