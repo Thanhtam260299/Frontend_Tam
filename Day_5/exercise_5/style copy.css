@@ -45,11 +45,11 @@ p.icon {
     color: #fff;
 }
 
-.btn {
+button {
     display: inline-block;
     border-radius: 23px;
-    border: 2px solid;
     padding: 6px 25px;
+    background-color: transparent;
 }
 
 .btn:hover {

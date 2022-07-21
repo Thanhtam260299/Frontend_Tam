@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    line-height: 30px;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style-type:none ;
+}
+
+h2 {
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 18px;
+    color: rgb(255, 252, 252);
+    padding-bottom: 25px;
+}
+
+i {
+    font-size: 23px;
+}
+
+.container {
+    display: flex;
+    padding: 20px 50px;
+    background-color: black;
+}
+
+.container .content-left {
+    width: 50%;
+    padding: 0 10px;
+}
+
+.container .content-center {
+    width: 20%;
+    padding: 0 10px;
+}
+
+.container .content-right {
+    width: 30%;
+    padding: 0 10px;
+}
+
+.content-footer {
+    color: white;
+    padding-top: 20px;
+    font-size: 17px;
+    font-weight: 600;
+    display: block;
+}
+
+.contact:hover,
+.course:hover {
+    opacity: 0.4;
+}
+
+a,
+.color-white {
+    color: rgba(255, 252, 252, 0.8);
+}
+
+ul.list-icon {
+    display: flex;
+    justify-content: space-between;
+    width: 55%;
+    height: 35px;
+    padding-bottom: 50px;
+}
+
+.icon {
+    background-color: white;
+    min-width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    text-align: center;
+    line-height: 40px;
+    padding-top: 5px;
+}
+
+.list-icon .ti-facebook {
+    color: rgb(46, 46, 182);
+}
+
+.list-icon .ti-youtube {
+    color: red;
+}
+
+.facebook:hover {
+    background-color: rgb(62, 62, 174);
+    transition: 0.7s;
+}
+
+.facebook:hover .ti-facebook {
+    color: white;
+}
+
+.youtobe:hover {
+    background-color: red;
+    transition: 0.7s;
+}
+
+.youtobe:hover .ti-youtube {
+    color: white;
+}
+
+.input-contact {
+    max-width: 70%;
+    padding: 9px 20px;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.submit-contact {
+    display: flex;
+    margin-top: 10px;
+}
+
+.submit {
+    max-width: 30%;
+    padding: 9px 15px;
+    border-radius: 5px;
+    background-color: #2f2fd2;
+    color: white;
+}
+
+.submit:hover {
+    opacity: 0.6;
+}
+
+
