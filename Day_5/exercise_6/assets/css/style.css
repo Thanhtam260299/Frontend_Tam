@@ -56,7 +56,7 @@ i {
     padding-top: 20px;
     font-size: 17px;
     font-weight: 600;
-    display: block;
+    display: inline-block;
 }
 
 .contact:hover,
@@ -71,10 +71,10 @@ a,
 
 ul.list-icon {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
-    width: 55%;
-    height: 35px;
-    padding-bottom: 50px;
+    width: 50%;
+    padding-bottom: 20px;
 }
 
 .icon {
