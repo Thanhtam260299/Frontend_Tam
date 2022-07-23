@@ -1,47 +1,26 @@
 body {
     background-color: rgb(42, 42, 144);
+    width: 100%;
 }
 
 .main {
-    margin: 200px auto;
+    width: 100%;
+    margin: 0 auto;
 }
 
-p{
-    text-align: center;
-    height: 60px;
-    line-height: 40px;
-    color: white;
-    font-size: 30px;
-}
-
-.text2, .text3, .text4 {
-    display: none;
+img {
+    width: 33.33333%;
 }
 
 
-@media (min-width: 768px) {
-    .text1, .text3, .text4 {
-        display: none;
-    }
-    .text2 {
-    display: block;
+@media (max-width: 768px) {
+    img {
+        width: 50%;
     }
 }
 
-@media (min-width: 576px) {
-    .text2, .text1, .text4 {
-        display: none;
+@media (max-width: 576px) {
+    img {
+        width: 100%;
     }
-    .text3 {
-        display: block;
-        }
-}
-
-@media (max-width: 390px) {
-    .text2, .text3, .text1 {
-        display: none;
-    }
-    .text4 {
-        display: block;
-        }
 }
