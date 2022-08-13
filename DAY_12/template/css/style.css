@@ -1,0 +1,38 @@
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    vertical-align: middle;
+}
+
+div.row {
+	margin: 20px 0px;
+}
+
+span.label-medium {
+	padding: 8px 10px;
+    margin: 0px 8px;
+    font-size: 16px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+label {
+    margin-left: 14px;
+    font-size: 16px;
+    margin-top: -21px;
+    display: block;
+    cursor: pointer;
+}
+
+input[type="checkbox"] {
+    /* margin-top: 10px; */
+    transform: scale(2.2);
+}
+
+input.check_stt {
+    margin-top: 10px !important;
+}
+
+input[type="checkbox"]:checked {
+    background-color: green;
+  }

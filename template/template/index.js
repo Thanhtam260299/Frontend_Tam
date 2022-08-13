@@ -25,26 +25,39 @@ ELEMENT_SUBMIT.addEventListener('click',function(){
    listTask.push({id: id, name: name, medium: medium});
    localStorage.setItem('data', JSON.stringify(listTask))
    
+   let listContent = ''
    // in ra các phần tử, duyệt qua array
-   listTask.forEach((listTask,index) => {
+   listTask.forEach((item,index) => {
       index++
-      var levelMedium = listTask.medium == 2 ? '<span  class="label label-danger">High</span>' : '<span  class="label label-info">Medium</span>';
+      var levelMedium = item.medium == 2 ? '<span  class="label label-danger">High</span>' : '<span  class="label label-info">Medium</span>';
       var nameId = index
+      
+      listContent.innerHTML=''
       listContent += 
       `<tr>
-      <td class="text-center task-number">${index}</td>
-      <td  class="task-content">${listTask.name}</td>
-      <td class="text-center">${levelMedium}</td>
-      <td>
-      <button type="button" class="btn btn-warning">Edit</button>
-      <button type="button" onclick="elementDelete(${nameId})" class="btn btn-danger" id="btn-delete">Delete</button>
-      </td>
+         <td class="text-center task-number">${index}</td>
+         <td  class="task-content">${item.name}</td>
+         <td class="text-center">${levelMedium}</td>
+         <td>
+            <button type="button" class="btn btn-warning">Edit</button>
+            <button type="button" onclick="elementDelete(${nameId})" class="btn btn-danger" id="btn-delete">Delete</button>
+         </td>
       </tr>`
    });
    document.getElementById('data_new').innerHTML = listContent
-   var listContent = ''
+
+   ELEMENT_FORM.style.display= 'none'
+   ELEMENT_BTN.style.backgroundColor = '#5BC0DE'
+   ELEMENT_BTN.innerText = 'Add Task'
+   ELEMENT_INPUT.value = ''
+   ELEMENT_LEVEL.value = 'Medium'
 })
 
+ELEMENT_CANCLE.addEventListener('click',function(){
+   ELEMENT_INPUT.value = ''
+   ELEMENT_LEVEL.value = 'Medium'
+
+})
    function elementDelete(nameId){
       listTask.splice(nameId,1)
       console.log(listTask)

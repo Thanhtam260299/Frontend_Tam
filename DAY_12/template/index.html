@@ -25,7 +25,7 @@
 
 		<!-- TITLE : START -->
 		<div class="page-header">
-		  <h1>Project 01 - ToDo List <small>NodeJS</small></h1>
+		  <h1>Project - ToDo List </h1>
 		</div>
 		<!-- TITLE : END -->
 
@@ -62,7 +62,7 @@
 
 			<!-- ADD : START -->
 			<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-				<button type="button" class="btn btn-info btn-block" id="js-btn">Add Task</button>
+				<button type="button" id="button_form" class="btn btn-info btn-block">Add Task</button>
 			</div>
 			<!-- ADD : END -->
 
@@ -71,23 +71,24 @@
 		
 		<!-- FORM : START -->
 		<div class="row">
-			<div class="col-md-offset-7 col-md-6">
-				<form action="" method="POST" id="js-task" class="form-inline"  >
+			<div class="col-md-offset-7 col-md-5">
+				<form action="" hidden id="formInput" method="POST" class="form-inline"  >
 					<div class="form-group">
 						<label class="sr-only" for="">label</label>
-						<input type="text" id="input_value" class="form-control" placeholder="Task Name" ref="task_name" />
+						<input id="input_name" type="text" class="form-control" placeholder="Task Name" ref="task_name" />
 					</div>
 					<div class="form-group">
 						<label class="sr-only" for="">label</label>
-						<select name="ds" id="input_level" id="inputDs" class="form-control" required="required" ref="task_level">
-							<opti value="0" >Small</option>
-							<option value="1">Medium</option>
-							<option value="2">High</option>
+						<select id="input_level" name="ds" id="inputDs" class="form-control" required="required" ref="task_level">
+							<option value="Small" >Small</option>
+							<option value="Medium">Medium</option>
+							<option value="High">High</option>
 						</select>
 					</div>
 
-					<button type="button" class="btn btn-primary" id="input_submit">Submit</button>
-					<button type="button" id="btn-cancle" class="btn btn-default">Cancel</button>
+					<button type="button" id="input_id" hidden value=""></button>
+					<button type="button" id="button_submit" class="btn btn-primary">Submit</button>
+					<button type="button" id="button_cacel" class="btn btn-default">Cancel</button>
 				</form>
 			</div>
 		</div>
@@ -104,40 +105,13 @@
 						<th>Task</th>
 						<th style="width: 20%" class="text-center">Level</th>
 						<th style="width: 20%">Action</th>
+						<th style="width: 10%">Status</th>
+						
 					</tr>
 				</thead>
 
-				<!-- <tbody>
-					<tr>
-						<td class="text-center">1</td>
-						<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ea c</td>
-						<td class="text-center"><span class="label label-danger">High</span></td>
-						<td>
-							<button type="button" class="btn btn-warning">Edit</button>
-							<button type="button" class="btn btn-danger">Delete</button>
-						</td>
-					</tr>
-					<tr>
-						<td class="text-center">2</td>
-						<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ea c</td>
-						<td class="text-center"><span class="label label-default">Small</span></td>
-						<td>
-							<button type="button" class="btn btn-warning">Edit</button>
-							<button type="button" class="btn btn-danger">Delete</button>
-						</td>
-					</tr>
-					<tr>
-						<td class="text-center">3</td>
-						<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ea c</td>
-						<td class="text-center"><span class="label label-info">Medium</span></td>
-						<td>
-							<button type="button" class="btn btn-warning">Edit</button>
-							<button type="button" class="btn btn-danger">Delete</button>
-						</td>
-					</tr> -->
-					<!-- **************new task************** -->
-					<tbody id="data_new" >
-					</tbody>
+				<tbody id="content-showData">
+					
 				</tbody>
 
 			</table>
@@ -157,9 +131,8 @@
 	<script src="js/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="js/bootstrap.min.js"></script>
-	<script src="./const.js"></script>
-	<script src="./index.js"></script>
-
-	
+	<script src="./js/const.js"></script>
+	<script src="./js/model.js"></script>
+	<script src="./js/view.js"></script>
 </body>
 </html>
