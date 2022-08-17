@@ -1,3 +1,42 @@
+// search
+const handleToggleFormSearch = (open) => {
+    if(open) {
+        var contenTask = ELEMENT_SEARCH.value.toUpperCase()
+        if(!contenTask.trim()) {
+            alert('Vui long nhap thong tin')
+            toggle = false
+            return false
+        } else {
+            ELEMENT_BTN_GO.style.backgroundColor = 'red'
+            ELEMENT_BTN_GO.innerHTML = 'CLOSE'
+
+            var đk = arrData.some(item =>item.name.toUpperCase().includes(contenTask))
+            console.log(đk)
+            if (!đk) {
+                ELEMENT_CONTENT.innerHTML = 'Không có dữ liệu cần tìm'
+                ELEMENT_CONTENT.classList.add('no-data-search')
+                alert('no')
+            } else {
+                findItemSearch()
+                ShowData()
+                arrData = getItemLocalstorage()
+            }
+        }
+    } else {
+        ELEMENT_BTN_GO.style.backgroundColor = '#46b8da'
+        ELEMENT_BTN_GO.innerHTML = 'Go!'
+        ELEMENT_SEARCH.value = ''
+        ELEMENT_CONTENT.classList.remove('no-data-search')
+        ShowData() 
+    }
+}
+
+// find item search
+const findItemSearch = () => {
+    contenTask = ELEMENT_SEARCH.value.toUpperCase()
+    arrData = arrData.filter(items => items.name.toUpperCase().includes(contenTask))
+}
+
 // open,close input
 const handleToggleForm = (open) => {
     if(open) {
@@ -10,7 +49,6 @@ const handleToggleForm = (open) => {
         ELEMENT_FORM_BUTTON.innerHTML = 'ADD TASK' 
     }
 }
-
 // random ID
 function randomString(length) {
     var text = "";
@@ -33,7 +71,6 @@ const ShowData = () =>{
     let xhtml = '';
     arrData.forEach((item, index) => {
         var levelInput = item.level
-        console.log(item.color)
         switch (levelInput) {
             case 'Small':
                 levelInput = '<span class="label label-default">Small</span>'
@@ -45,7 +82,7 @@ const ShowData = () =>{
                 levelInput = '<span  class="label label-danger">High</span>'
                 break;
         }
-        xhtml += ` <tr ${item.color}>
+        xhtml += ` <tr ${item.color} id="no_data">
             <td class="text-center">${index + 1}</td>
             <td>${item.name}</td>
             <td class="text-center">${levelInput}</td>
@@ -65,14 +102,31 @@ const ShowData = () =>{
 
 // status data
 function doneTask(id) {
-    var item = arrData.find(ten_gi_cung_duoc => {
-        return ten_gi_cung_duoc.id === id 
-    })
-    var index = arrData.indexOf(item);
-    changePosition(arrData, index, arrData.length-1)
-    localStorage.setItem('data', JSON.stringify(arrData))
-    ShowData()
+    console.log(done)
+    if(done) {
+        var item = arrData.find(ten_gi_cung_duoc => ten_gi_cung_duoc.id === id)
+        var index = arrData.indexOf(item);
+        changePosition(arrData, index, arrData.length-1)
+        setItemLocalstorage()
+        ShowData()
+        // done = false;
+    }else {
+        var item = arrData.find(ten_gi_cung_duoc => ten_gi_cung_duoc.id === id)
+        var index = arrData.indexOf(item);
+        returnPosition(arrData, index, 0)
+        setItemLocalstorage()
+        ShowData()
+    }
+    done = !done  
 }
+
+function returnPosition(arr, from, to) {
+    let changeColor = arr.splice(from, 1)[0]
+    delete changeColor.color
+    arr.splice(to, 0, changeColor) 
+    console.log(changeColor)
+    return arr
+}  
 
 function changePosition(arr, from, to) {
     let changeColor = arr.splice(from, 1)[0]
@@ -83,17 +137,26 @@ function changePosition(arr, from, to) {
 
 // delete data
 function deletaItem(id){
-    alert('Are you sure')
-    var item = arrData.find(ten_gi_cung_duoc => {
-        return ten_gi_cung_duoc.id === id 
-    })
-    var index = arrData.indexOf(item);
-    arrData.splice(index, 1)
-    localStorage.setItem('data', JSON.stringify(arrData))
-    ShowData()
+            let text;
+        if (confirm("Press a button!") == true) {
+            // let item = arrData.find(ten_gi_cung_duoc => ten_gi_cung_duoc.id === id )
+            // var index = arrData.indexOf(item);
+            // arrData.splice(index, 1)
+            arrData = arrData.filter(item => item.id != id)
+            setItemLocalstorage()
+            if (toggle===false) {
+                getItemLocalstorage()
+                findItemSearch()
+                ShowData()
+                arrData = getItemLocalstorage()
+            } else {
+                ShowData()
+            }
+        }
+            
 }
 
-// edit data
+// editItem
 function editItem(id) {
     handleToggleForm(true)
     var item = arrData.find(ten_gi_cung_duoc => {
@@ -105,6 +168,22 @@ function editItem(id) {
 }
 
 
+//add
+function add(itemArr) {
+    arrData.unshift(itemArr)
+}
+
+// getItemLocalstorage
+const getItemLocalstorage = () => {
+    let dataArray = JSON.parse(localStorage.getItem('data'))
+    dataArray = dataArray ? dataArray : []
+    return dataArray
+}
+
+// setItemLocalstorage
+const setItemLocalstorage = () => {
+    localStorage.setItem('data', JSON.stringify(arrData))
+}
  
 
 

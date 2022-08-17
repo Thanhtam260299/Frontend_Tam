@@ -36,3 +36,11 @@ input.check_stt {
 input[type="checkbox"]:checked {
     background-color: green;
   }
+
+.no-data-search {
+    display: block;
+    width: 1000%;
+    text-align: center;
+    font-size: 16px;
+    font-style: italic;
+}
