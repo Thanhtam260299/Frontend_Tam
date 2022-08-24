@@ -1,0 +1,239 @@
+html {
+    font-size: 62.5%;
+    line-height: 0.5rem;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #3f8434;
+}
+
+
+@keyframes modalBlur {
+    from{
+        transform: scale(0.6);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+@keyframes modalShow {
+    from{
+        transform: scale(0.6);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+li {
+    list-style-type: none;
+}
+
+a {
+    color: white;
+}
+
+.grid {
+    display: block;
+    width: 800px;
+    max-width: 100%;
+
+    margin: 0 auto;
+    padding: 0;
+}
+
+.grid_header {
+    display: block;
+    width: 850px;
+    max-width: 100%;
+
+    margin: 0 auto;
+    padding: 0;
+}
+
+.grid-margin-top {
+    margin-top: 1rem;
+}
+
+.color-grid {
+    background-color: lightgrey;
+}
+
+.row-navbar {
+    justify-content: space-between;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.row-select {
+    padding: 1.8rem 2.5rem;
+    border-radius: 5px;
+    background-color: lightgrey;
+}
+
+.col {
+    padding-left: .7rem;
+    padding-right: .5rem;
+}
+
+.col-notification {
+    padding-left: .5rem;
+    padding-right: 1.5rem; 
+}
+
+.col-select {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.c-2 {
+    flex: 0 0 16.66667%;
+    max-width: 16.66667%;
+}
+
+.c-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+
+.c-4 {
+    flex: 0 0 40%;
+    max-width: 40%;
+}
+
+.c-6 {
+    flex: 0 0 60%;
+    max-width: 60%;
+}
+
+.c-10 {
+    flex: 0 0 83.33333%;
+    max-width: 83.33333%;
+}
+
+.l-2-4 {
+    flex: 0 0 20%;
+    max-width: 20%;
+}
+
+.grid_full-width {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.space-top {
+    margin-top: 1.4rem;
+}
+
+
+@media (max-width: 880px) {
+    .row-navbar {
+        flex-wrap: nowrap;
+    }
+    .grid {
+        width: 700px;
+    }
+}
+
+@media (max-width: 785px) {
+    .item-logo {
+        display: none;
+    }
+}
+
+@media (max-width: 650px) {
+
+    .grid {
+        width: 500px;
+    }
+    
+    .game_number {
+        line-height: 6rem;
+    }
+
+    .game_cover {
+        height: 6rem;
+    }
+
+    .l-2-4 {
+        max-width: 11%;
+    }
+
+    .c-6 {
+        max-width: 100%;
+    }
+
+    .c-4 {
+        max-width: 100%;
+    }
+
+    .game {
+        flex-direction: column-reverse;
+    }
+
+    .select-common {
+        font-size: 1.6rem;
+    }
+
+    .col-select {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+    .btn-confirm-common {
+        padding: 10px 11px;
+    }
+
+    .show-content {
+        font-size: 54px;
+    }
+
+    .row-navbar {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .list-item {
+        margin-top: 15px;
+    }
+
+    .show-describe {
+        right: -319%;
+        bottom: -161px;
+    }
+
+    .show-describe::before {
+        right: 226px;
+        bottom: 200px;
+    }
+
+    .content-confirm {
+        font-size: 19px;
+    }
+
+    .col-notification {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    .space-top {
+        margin-top: 1rem;
+    }
+
+    .col {
+        padding-left: .5rem;
+        padding-right: .25rem;
+    }
+}

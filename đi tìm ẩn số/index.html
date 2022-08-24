@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đi tìm ẩn số</title>
+    <link rel="shortcut icon" href="../đi tìm ẩn số/img/favicon.png" />
+    <link rel="stylesheet" href="./fontawesome-free-6.1.1-web/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Coiny&family=Fredoka+One&family=IBM+Plex+Serif:ital,wght@0,300;0,400;0,600;0,700;1,700&family=Inter:wght@100;200;300;400;500;600;700;800&family=Lato:ital,wght@0,300;0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,400;0,500;1,500&family=Varela+Round&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./base.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="grid_header grid-margin-top row row-navbar">
+            <div class="item-logo">
+                <img class="img-logo" src="https://zodigames.com/wp-content/uploads/2020/09/Zodi-Games.png.webp" alt="">
+            </div>
+            <ul class="list-item list-item-left">
+                <li class="item item-pinterest">
+                    <i class="fa-brands fa-pinterest"></i>
+                </li>
+                <li class="item item-share">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=http://127.0.0.1:5500/DAY_13/%C4%91i%20t%C3%ACm%20%E1%BA%A9n%20s%E1%BB%91/">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                </li>
+                <li class="item item-mess">
+                    <i class="fa-brands fa-facebook-messenger"></i>
+                </li>
+                <li class="item item-reddit">
+                    <i class="fa-brands fa-reddit-alien"></i>
+                </li>
+                <li class="item item-twitter">
+                    <i class="fa-brands fa-twitter"></i>
+                </li>
+            </ul>
+            <ul class="list-item list-item-right">
+                <li class="item-left item-dark-mode">
+                    <i class="fa-solid fa-lightbulb"></i>
+                </li>
+                <li class="item-left item-describe">
+                    <i class="fa-solid fa-question"></i>
+                    <!--describe -->
+                    <div class="show-describe">
+                        <p class="content-confirm content-size">
+                            Khi bạn nhấn vào nút Play game chương trình sẽ tạo ra 1 số bí ẩn, việc của bạn là tìm ra số bí ẩn đó bằng cách nhận chọn
+                            các ô số bên cạnh <br> 
+                            Lưu ý: mỗi lần chọn sai bạn sẽ mất đi 1 ô máu
+                        </p>
+                    </div>
+                </li>
+                <li class="item-left item-close">
+                    <i class="fa-solid fa-xmark"></i>
+            </ul>
+        </nav>
+        <div class="grid grid-margin-top">
+            <div class="row game">
+               <div class="col c-6 change-center">
+                    <div class="row" id="game_inner">
+                    </div>
+               </div> 
+               <div class="col-notification  c-4">
+                    <div class="notification space-top">
+                        <div class="notification-header">
+                            <h3 class="game_name">
+                                ĐI TÌM ẨN SỐ
+                            </h3>
+                        </div>
+                        <div class="notification-content">
+                            <div class="notification-health">
+                                <p class="notification-health-point">
+                                    Health point:
+                                </p>
+                                <li class="notification-health-list-icon" id="list-icon">
+                                    <ul class="notification-health-icons">
+                                        <i class="fa-solid fa-heart notification-health-icon"></i>
+                                    </ul>
+                                    <ul class="notification-health-icons">
+                                        <i class="fa-solid fa-heart"></i>
+                                    </ul>
+                                    <ul class="notification-health-icons">
+                                        <i class="fa-solid fa-heart"></i>
+                                    </ul>
+                                    <ul class="notification-health-icons health-icons-level-high">
+                                        <i class="fa-solid fa-heart"></i>
+                                    </ul>
+                                    <ul class="notification-health-icons health-icons-level-high">
+                                        <i class="fa-solid fa-heart"></i>
+                                    </ul>
+
+                                </li>
+                            </div>
+                            <p class="notification-guide">
+                                Hãy chọn 1 con số bạn nghĩ nó là đúng:
+                            </p>
+                            <div class="notification-result">
+                                <!-- <div class="result-fail">
+                                    <span class="result-img result-img-fail">
+                                        Sai rồi! 
+                                        <i class="fa-solid fa-face-sad-cry"></i>
+                                    </span>
+                                    <p class="result-fail-text">
+                                        Lần 1: 16 - Số của bạn nhỏ hơn số bí mật
+                                    </p>
+                                </div>
+                                <div class="result-fail">
+                                    <span class="result-img result-img-fail">
+                                        Sai rồi! 
+                                        <i class="fa-solid fa-face-sad-cry"></i>
+                                    </span>
+                                    <p class="result-fail-text">
+                                        Lần 2: 24 - Số của bạn lớn hơn số bí mật
+                                    </p>
+                                </div>
+                                <div class="result-fail">
+                                    <span class="result-img result-img-success">
+                                        Chính xác! 
+                                        <i class="fa-solid fa-face-smile-beam"></i>
+                                    </span>
+                                    <p class="result-fail-text">
+                                        Lần 3: 21 - Bạn thắng - Bạn đã chọn đúng số bí mật
+                                    </p>
+                                </div> -->
+                            </div>
+                            <div class="notification-number-secret">
+                                <span class="notification-number notification-number-text">
+                                    SỐ BÍ MẬT
+                                </span>
+                                <span class="notification-number notification-number-result">
+                                    ?
+                                </span>
+
+                            </div>
+                        </div>
+
+                    </div>
+               </div> 
+            </div>
+        </div>
+        <div class="grid">
+            <div class="row row-select" id="row-select">
+                <div class="col-select c-3">
+                    <div class="select">
+                        <p class="select-common select-replay" id="js-btn-play">
+                            PLAY GAME
+                        </p>
+                    </div>
+                </div>
+                <div class="col-select c-3">
+                    <div class="select">
+                        <p class="select-common select-suggest">
+                            SUGGEST
+                        </p>
+                    </div>
+                </div>
+                <div class="col-select c-3" id="select-save-game">
+                    <div class="select">
+                        <p class="select-common select-continue">
+                            SAVE GAME
+                        </p>
+                    </div>
+                </div>
+                <div class="col-select c-3">
+                    <div class="select-level">
+                        <p class="select select-common level-inner">
+                            LEVEL
+                        </p>
+                        <div class="select-level-option">
+                            <p onclick="levelEasy()" class="select-common option-level">
+                                Easy
+                            </p>
+                            <p onclick="levelMedium()" class="select-common option-level">
+                                Medium
+                            </p>
+                            <p onclick="levelHigh()" class="select-common option-level">
+                                High
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- show kết quả win game -->
+    <div class="show-result show-result-win">
+        <div class="show-cover">
+            <div class="show-img">
+                <img class="img" src="../đi tìm ẩn số/img/Untitled1.png" alt="">
+                <p class="show-content">
+                    YOU WIN!
+                </p>
+                <button class="btn-continue btn-continue-win">
+                    Continue
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- show kết quả lose game -->
+    <div class="show-result show-result-fail">
+        <div class="show-cover">
+            <div class="show-img">
+                <img class="img" src="../đi tìm ẩn số/img/fail.png" alt="">
+                <button class="btn-continue btn-continue-fail">
+                    Continue
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- save game -->
+    <div class="show-result confirm-pause">
+        <div class="show-cover">
+            <div class="show-img show-confirm">
+                <p class="content-confirm">
+                    Bạn có muốn lưu game lại?
+                </p>
+                <div class="btn-confirm">
+                    <button onclick="saveYes()" class="btn-confirm-common btn-confirm-yes">
+                        Đúng rồi
+                    </button>
+                    <button onclick="saveNo()" class="btn-confirm-common btn-confirm-no">
+                        Thôi không lưu
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- confirm khi nhấn vào newgame -->
+    <div class="show-result confirm-new-game">
+        <div class="show-cover">
+            <div class="show-img show-new-game">
+                <p class="content-confirm">
+                    Bạn đã sẵn sàng chơi lại chưa?
+                </p>
+                <div class="btn-confirm">
+                    <button onclick="newGameYes()" class="btn-confirm-common btn-confirm-yes">
+                        Zoo, chơi luôn!
+                    </button>
+                    <button onclick="newGameNo()" class="btn-confirm-common btn-confirm-no">
+                        Thôi, suy nghĩ lại rồi
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- confirm khi star -->
+    <div class="show-result confirm-play-continue">
+        <div class="show-cover">
+            <div class="show-img show-new-game">
+                <p class="content-confirm">
+                    Game vẫn còn dang dở, tiếp tục nào
+                </p>
+                <div class="btn-confirm">
+                    <button onclick="playContinue()" class="btn-confirm-common btn-confirm-yes">
+                        Ok, tiếp tục
+                    </button>
+                    <button onclick="playNew()" class="btn-confirm-common btn-confirm-no">
+                        Thôi, game mới
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- confirm khi change level -->
+    <div class="show-result confirm-play-level">
+        <div class="show-cover">
+            <div class="show-img show-new-level ">
+                <p class="content-confirm">
+                Bạn có muốn chơi lại game với Level mới?
+                </p>
+                <div class="btn-confirm">
+                    <button onclick="playNewLevel()" class="btn-confirm-common btn-confirm-yes">
+                        Đồng ý
+                    </button>
+                    <button onclick="playOldLevel()" class="btn-confirm-common btn-confirm-no">
+                        Không
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="./model.js"></script>
+    <script src="./const.js"></script>
+    <script src="./view.js"></script>
+</body>
+</html>
