@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fmovie</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Coiny&family=Fredoka+One&family=IBM+Plex+Serif:ital,wght@0,300;0,400;0,600;0,700;1,700&family=Inter:wght@100;200;300;400;500;600;700;800&family=Lato:ital,wght@0,300;0,400;0,700;1,400;1,700&family=Padauk:wght@400;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,400;1,500&family=Varela+Round&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../movie/fontawesome-free-6.1.1-web/css/all.min.css">
+    <link rel="stylesheet" href="../movie/css/home/base.css">
+    <link rel="stylesheet" href="../movie/css/home/style.css">
+    <link rel="stylesheet" href="../movie/css/home/reponsive.css">
+    <link rel="stylesheet" href="../movie/css/pageWatchMovie.css/style.css">
+</head>
+<body>
+    <div class="container__cover-header">
+        <div class="container-header">
+            <header class="header grid">
+                <header class="header-search">
+                    <header class="header-search-logo">
+                        <a href="#" class="header-icon">
+                            <img src="https://s1.bunnycdn.ru/assets/sites/fmovies/logo2.png" alt="" class="img-logo">
+                        </a>
+                        <form action="" class="form-search">
+                            <input type="text" placeholder="Nhập tên phim, diễn viên...">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </form>
+                    </header>
+                    <ul class="header-list-icon">
+                        <li class="header__icon header__icon--bulb">
+                            <i class="fa-solid fa-lightbulb"></i>
+                        </li>
+                        <li class="header__icon header__icon--sign-up">
+                            <i class="fa-solid fa-user"></i>
+                            <span class="header-sign">
+                                Sign Up
+                            </span>
+                        </li>
+                        <li class="header__icon header__icon--sign-in">
+                            <i class="fa-solid fa-right-to-bracket"></i>
+                            <span class="header-sign">
+                                Sign In
+                            </span>
+                        </li>
+                        <li class="header__icon header__icon--menu">
+                            <i class="fa-solid fa-bars"></i>
+                        </li>
+                    </ul>
+                </header>
+                <header class="header-navbar">
+
+                </header>
+            </header>
+        </div>
+        <div class="container-cover-navbar">
+            <div class="navbar-cover">
+                    <ul class="navbar grid">
+                        <li class="navbar__select navbar__select-home">
+                            <a href="#" class="navbar__select-movie">
+                                <i class="fa-solid fa-house-chimney"></i>
+                            </a>
+                        </li>
+                        <li class="navbar__select navbar__select-new-film">
+                            <a href="#" class="navbar__select-movie">
+                                new movie
+                            </a>
+                        </li>
+                        <li class="navbar__select navbar__select-category">
+                            <a href="#" class="navbar__select-movie navbar__select-movie--icon">
+                                Genre
+                                <i class="fa-solid fa-sort-down navbar-icon--down"></i>
+                            </a>
+                            <ul class="menu-items--genre">
+                                <li class="item">
+                                    <a class=" item-link" href="#">Action</a>
+                                </li>
+                                <li class="item">
+                                    <a class=" item-link" href="#">Horror</a>
+                                </li>
+                                <li class="item">
+                                    <a class=" item-link" href="#">Family</a>
+                                </li>
+                                <li class="item">
+                                    <a class=" item-link" href="#">Crime</a>
+                                </li>
+                                <li class="item">
+                                    <a class=" item-link" href="#">War</a>
+                                </li>
+                                <li class="item">
+                                    <a class=" item-link" href="#">Kungfu</a>
+                                </li>
+                                <li class="item">
+                                    <a class=" item-link" href="#">Adventure</a>
+                                </li>
+                                <li class="item">
+                                    <a class=" item-link" href="#">Animation</a>
+                                </li>
+                                <li class="item">
+                                    <a class=" item-link" href="#">Romance</a>
+                                </li>
+                                <li class="item">
+                                    <a class=" item-link" href="#">History</a>
+                                </li>
+                                <li class="item">
+                                    <a class=" item-link" href="#">Drama</a>
+                                </li>
+                                <li class="item">
+                                    <a class=" item-link" href="#">Documetary</a>
+                                </li>
+                                <li class="item">
+                                    <a class=" item-link" href="#">Sport</a>
+                                </li>
+                                <li class="item">
+                                    <a class=" item-link" href="#">TV Show</a>
+                                </li>
+                                <li class="item">
+                                    <a class=" item-link" href="#">Music</a>
+                                </li>
+                                <li class="item">
+                                    <a class=" item-link" href="#">Biography</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="navbar__select navbar__select-country">
+                            <a href="#" class="navbar__select-movie  navbar__select-movie--icon">
+                                country
+                                <i class="fa-solid fa-sort-down navbar-icon--down"></i>
+                            </a>
+                            <ul class="menu-items--country">
+                                <li class="item">
+                                    <a class=" item-link" href="#">Argentina</a>
+                                </li>
+                                <li class="item">
+                                    <a class=" item-link" href="#">Belgium</a>
+                                </li>
+                                <li class="item">
+                                    <a class=" item-link" href="#">China</a>
+                                </li>
+                                <li class="item">
+                                    <a class=" item-link" href="#">Hong Kong</a>
+                                </li>
+                                <li class="item">
+                                    <a class=" item-link" href="#">Italy</a>
+                                </li>
+                                <li class="item">
+                                    <a class=" item-link" href="#">Spain</a>
+                                </li>
+                                <li class="item">
+                                    <a class=" item-link" href="#">Australia</a>
+                                </li>
+                                <li class="item">
+                                    <a class=" item-link" href="#">France</a>
+                                </li>
+                                <li class="item">
+                                    <a class=" item-link" href="#">Hungary</a>
+                                </li>
+                                <li class="item">
+                                    <a class=" item-link" href="#">Japan</a>
+                                </li>
+                                <li class="item">
+                                    <a class=" item-link" href="#">Poland</a>
+                                </li>
+                                <li class="item">
+                                    <a class=" item-link" href="#">South Africa</a>
+                                </li>
+                                <li class="item">
+                                    <a class=" item-link" href="#">Brazil</a>
+                                </li>
+                                <li class="item">
+                                    <a class=" item-link" href="#">Finland</a>
+                                </li>
+                                <li class="item">
+                                    <a class=" item-link" href="#">Sweden</a>
+                                </li>
+                                <li class="item">
+                                    <a class=" item-link" href="#">Russia</a>
+                                </li>
+                                <li class="item">
+                                    <a class=" item-link" href="#">Mexico</a>
+                                </li>
+                                <li class="item">
+                                    <a class=" item-link" href="#">India</a>
+                                </li>
+                                <li class="item">
+                                    <a class=" item-link" href="#">Canada</a>
+                                </li>
+                                <li class="item">
+                                    <a class=" item-link" href="#">Denmark</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="navbar__select navbar__select-odd-movie">
+                            <a href="#" class="navbar__select-movie">
+                                odd movie
+                            </a>
+                        </li>
+                        <li class="navbar__select navbar__select-series-movie">
+                            <a href="#" class="navbar__select-movie">
+                                series
+                            </a>
+                        </li>
+                        <li class="navbar__select navbar__select-movie-theaters">
+                            <a href="#" class="navbar__select-movie">
+                                trailer
+                            </a>
+                        </li>
+                        <li class="navbar__select navbar__select-anime">
+                            <a href="#" class="navbar__select-movie">
+                                anime
+                            </a>
+                        </li>
+                        <li class="navbar__select navbar__select-trailer">
+                            <a href="#" class="navbar__select-movie">
+                                top rating
+                            </a>
+                        </li>
+                    </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container__app grid">
+        <div class="app__nav-bar">
+            <ul class="nav-bar__list">
+                <li class="nav-bar__item">
+                    <a href="#" class="item__link">
+                        <i class="fa-solid fa-house-chimney"></i>
+                        Xem phim
+                        <i class="fa-sharp fa-solid fa-angle-right icon-angle"></i> 
+                    </a>
+                </li>
+                <li class="nav-bar__item">
+                    <a href="#" class="item__link">
+                        Phim hành động
+                        <i class="fa-sharp fa-solid fa-angle-right icon-angle"></i> 
+                    </a>
+                </li>
+                <li class="nav-bar__item">
+                    Name Movie
+                </li>
+            </ul>
+        </div>
+        <div class="app__body">
+            <div class="body__movie">
+                <video width="100%" height="540px" controls poster="https://i.pinimg.com/originals/c4/0b/56/c40b56446ae6f221e20ea4dfb708db21.jpg">
+                    <source src="http://www.warnerbros.com/wonder-woman" type="video/mp4">
+                </video>
+            </div>
+            <div class="body__content">
+                <h3 class="content__name-movie">
+                    Bà Chủ 2
+                </h3>
+                <div class="content__interactive">
+                    <div class="content__like-share">
+                        <a href="#" class="content__like">
+                            <i class="fa-solid fa-thumbs-up"></i>
+                            Like
+                            <span class="like-number">
+                                10
+                            </span>
+                        </a>
+                        <a href="#" class="content__share">
+                            <i class="fa-solid fa-share"></i>
+                            Share
+                        </a>
+                    </div>
+                    <div class="content__rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <span class="ratings">
+                            20 ratings
+                        </span>
+                    </div>
+                </div>
+                <div class="content__movie">
+                    <h4 class="movie__heading">
+                        Nội dung phim Bà Chủ 2
+                    </h4>
+                    <p class="movie__content">
+                        Bà Chủ 2 Queen of Triads 2 2022 Full HD Vietsub Thuyết Minh Bối cảnh của bộ phim tập trung vào Hồng Kông những năm 1970. Phim kể về câu chuyện của White Rose (do Xu Dongdong thủ vai), một công lý của Ủy ban độc lập chống tham nhũng, người được lệnh phải lẻn đến tay trùm xã hội đen Lei Wan Wan (do Xie Tianhua) để thu thập bằn
+                    </p>
+                </div>
+                <div class="content__info">
+                    <ul class="list-info">
+                        <li class="item-info">
+                            Đang phát: 
+                            <span>
+                                Full HD
+                            </span>
+                        </li>
+                        <li class="item-info">
+                             Năm phát hành:
+                             <span>
+                                Trung Quốc
+                             </span>
+                        </li>
+                        <li class="item-info">
+                            Quốc gia: 
+                            <span>
+                                Trung Quốc
+                            </span>
+                        </li>
+                        <li class="item-info">
+                            Thể loại: 
+                            <span>
+                                Phim hành động
+                            </span>
+                        </li>
+                        <li class="item-info">
+                            Đạo diễn:
+                            <span>
+                                Vô danh
+                            </span>
+                        </li>
+                        <li class="item-info">
+                            Thời lượng:
+                            <span>
+                                90p
+                            </span>
+                        </li>
+                        <li class="item-info">
+                            Diễn viên:
+                            <span>
+                                Từ Đông Đông, Tạ Miêu, Liu Teng Yuan,
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="content__comment">
+                    <h4 class="comment__header">
+                        Comment
+                    </h4>
+                    <div class="comment__input">
+                        <div class="avatar">
+                            <img src="https://scontent.fsgn3-1.fna.fbcdn.net/v/t39.30808-1/299624937_3381255322105621_2510058687588518433_n.jpg?stp=cp0_dst-jpg_p74x74&_nc_cat=107&ccb=1-7&_nc_sid=dbb9e7&_nc_ohc=uiQ-HWoerKUAX9SM_vQ&_nc_ht=scontent.fsgn3-1.fna&edm=AJqh0Q8EAAAA&oh=00_AT-DT2cgz8O-DJD2KW3ZS1kXXR6Crh1Z3IwtmIr-HpDh8w&oe=63198D2D" alt="">
+                        </div>
+                        <div class="cover__input">
+                            <input type="text" class="input" placeholder="Viết bình luận...">
+                            <button class="submit">Đăng bài</button>
+                        </div>
+                    </div>
+                    <ul class="comment__list">
+                        <li class="comment__item">
+                            <div class="avatar">
+                                <img src="https://scontent.fsgn13-3.fna.fbcdn.net/v/t39.30808-1/283965261_4903755643066498_6683926138875345172_n.jpg?stp=cp0_dst-jpg_p74x74&_nc_cat=102&ccb=1-7&_nc_sid=dbb9e7&_nc_ohc=V4nZckDeirgAX9Lx4-E&tn=NGOfGOd573oEv7UF&_nc_ht=scontent.fsgn13-3.fna&edm=AJqh0Q8EAAAA&oh=00_AT9l54qWrsBbIpAF1pdCaGpxfTnviZFBw2nWAvO7h1DHnA&oe=631A2898" alt="">
+                            </div>
+                            <ul class="item__content">
+                                <li class="item__name">
+                                    Tâm phạm
+                                </li>
+                                <li class="item__comment">
+                                    phim hay quá
+                                </li>
+                                <li class="item-status">
+                                    <span>Thích</span>
+                                    <span>Phản hồi</span>
+                                    <span>1 phút</span>
+                                </li>
+                            </ul>     
+                        </li>
+                        <li class="comment__item">
+                            <div class="avatar">
+                                <img src="https://scontent.fsgn13-3.fna.fbcdn.net/v/t39.30808-1/274358967_2130393210468063_7100193117940656224_n.jpg?stp=c0.12.74.74a_cp0_dst-jpg_p74x74&_nc_cat=108&ccb=1-7&_nc_sid=dbb9e7&_nc_ohc=lyzw276nY3QAX-OGPbq&_nc_ht=scontent.fsgn13-3.fna&edm=AJqh0Q8EAAAA&oh=00_AT_2g46j4c4_hFcATNkTq7xhcOwjDcZrAWH0C6_6VflJ1Q&oe=631B0D32" alt="">
+                            </div>
+                            <ul class="item__content">
+                                <li class="item__name">
+                                    Sơn Nguyễn
+                                </li>
+                                <li class="item__comment">
+                                    Hóng phần mới 
+                                </li>
+                                <li class="item-status">
+                                    <span>Thích</span>
+                                    <span>Phản hồi</span>
+                                    <span>45 phút</span>
+                                </li>
+                            </ul>    
+                        </li>
+                        <li class="comment__item">
+                            <div class="avatar">
+                                <img src="https://scontent.fsgn8-2.fna.fbcdn.net/v/t1.6435-1/32104955_2140861829264859_9052693807493021696_n.jpg?stp=cp0_dst-jpg_p74x74&_nc_cat=111&ccb=1-7&_nc_sid=dbb9e7&_nc_ohc=bUseyrJTClMAX_t68WG&tn=NGOfGOd573oEv7UF&_nc_ht=scontent.fsgn8-2.fna&edm=AJqh0Q8EAAAA&oh=00_AT_1jbw8UL71aTmq87DMLowgPiNq7cWUBX1ytypS1tuAzQ&oe=633BCC70" alt="">
+                            </div>  
+                            <ul class="item__content">
+                                <li class="item__name">
+                                    Huy phạm
+                                </li>
+                                <li class="item__comment">
+                                    phim cũng được
+                                </li>
+                                <li class="item-status">
+                                    <span>Thích</span>
+                                    <span>Phản hồi</span>
+                                    <span>5 tiếng</span>
+                                </li>
+                            </ul>   
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="grid">
+        <div class="header__slide-bar">
+            <h2 class="header__slide-nominated-movie">
+                PHIM ĐỀ CỬ
+            </h2>
+            <div class="div">    
+                <span id="prev-header1" class="prev prev-header"><i class="fas fa-angle-left"></i></span>
+                <span id="next-header1" class="next next-header"><i class="fas fa-angle-right"></i></span>
+            </div>
+        </div>
+        <div id="intervalHeader1" class="slide-nominated-movie row row-no-wrap">
+            <a href="http://127.0.0.1:5500/movie/pageWatchMovie.html" class="c-2-5 col l-3 m-6 f-12 slide-nominated-link slide-movie-nomination">
+                <div class="slide-nominated-ground">
+                    <div class="slide-nominated__cover-img">
+                        <img class="img-hover" src="https://chill-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&refresh=604800&resize_h=500&url=https%3A%2F%2Fi0.wp.com%2Fimg.phimmoichills.net%2Fimages%2Finfo%2Flove-between-fairy-and-devil.jpg" alt="">
+                    </div>
+                    <p class="slide-nominated-name">
+                        John Wick 4 – Sát Thủ John Wick Phần 4
+                    </p>
+                    <p class="slide-nominated-sub">
+                        HD-Vietsub
+                    </p>
+                    <i class="fa-solid fa-play slide-nominated-play"></i>
+                </div>
+            </a>
+            <a href="http://127.0.0.1:5500/movie/pageWatchMovie.html" class="c-2-5 col l-3 m-6 f-12 slide-nominated-link slide-movie-nomination">
+                <div class="slide-nominated-ground">
+                    <div class="slide-nominated__cover-img">
+                        <img class="img-hover" src="https://chill-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&refresh=604800&resize_h=500&url=https%3A%2F%2Fi0.wp.com%2Fimg.phimmoichills.net%2Fimages%2Finfo%2Fdaeng-phra-khanong.jpg" alt="">
+                    </div>
+                    <p class="slide-nominated-name">
+                        Daeng: Hậu Duệ Tình Người Duyên Ma
+                    </p>
+                    <p class="slide-nominated-sub">
+                        HD-Vietsub
+                    </p>
+                    <i class="fa-solid fa-play slide-nominated-play"></i>
+                </div>
+            </a>
+            <a href="http://127.0.0.1:5500/movie/pageWatchMovie.html" class="c-2-5 col l-3 m-6 f-12 slide-nominated-link slide-movie-nomination">
+                <div class="slide-nominated-ground">
+                    <div class="slide-nominated__cover-img">
+                        <img class="img-hover" src="https://chill-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&refresh=604800&resize_h=500&url=https%3A%2F%2Fi0.wp.com%2Fimg.phimmoichills.net%2Fimages%2Finfo%2Fprey-2022.jpg" alt="">
+                    </div>
+                    <p class="slide-nominated-name">
+                        Con Mồi
+                    </p>
+                    <p class="slide-nominated-sub">
+                        HD-Vietsub
+                    </p>
+                    <i class="fa-solid fa-play slide-nominated-play"></i>
+                </div>
+            </a>
+            <a href="http://127.0.0.1:5500/movie/pageWatchMovie.html" class="c-2-5 col l-3 m-6 f-12 slide-nominated-link slide-movie-nomination">
+                <div class="slide-nominated-ground">
+                    <div class="slide-nominated__cover-img">
+                        <img class="img-hover" src="https://chill-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&refresh=604800&resize_h=500&url=https%3A%2F%2Fi0.wp.com%2Fimg.phimmoichills.net%2Fimages%2Finfo%2Fwestworld-season-4.jpg" alt="">
+                    </div>
+                    <p class="slide-nominated-name">
+                        Thế Giới Viễn Tây (Phần 4)
+                    </p>
+                    <p class="slide-nominated-sub">
+                        HD-Vietsub
+                    </p>
+                    <i class="fa-solid fa-play slide-nominated-play"></i>
+                </div>
+            </a>
+            <a href="http://127.0.0.1:5500/movie/pageWatchMovie.html" class="c-2-5 col l-3 m-6 f-12 slide-nominated-link slide-movie-nomination">
+                <div class="slide-nominated-ground">
+                    <div class="slide-nominated__cover-img">
+                        <img class="img-hover" src="https://chill-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&refresh=604800&resize_h=500&url=https%3A%2F%2Fi0.wp.com%2Fimg.phimmoichills.net%2Fimages%2Finfo%2Fbig-mouth.jpg" alt="">
+                    </div>
+                    <p class="slide-nominated-name">
+                        Big Mouth
+                    </p>
+                    <p class="slide-nominated-sub">
+                        HD-Vietsub
+                    </p>
+                    <i class="fa-solid fa-play slide-nominated-play"></i>
+                </div>
+            </a>
+            <a href="http://127.0.0.1:5500/movie/pageWatchMovie.html" class="c-2-5 col l-3 m-6 f-12 slide-nominated-link slide-movie-nomination">
+                <div class="slide-nominated-ground">
+                    <div class="slide-nominated__cover-img">
+                        <img class="img-hover" src="https://chill-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&refresh=604800&resize_h=500&url=https%3A%2F%2Fi0.wp.com%2Fimg.phimmoichills.net%2Fimages%2Finfo%2Fthirteen-lives.jpg" alt="">
+                    </div>
+                    <p class="slide-nominated-name">
+                        13 Sinh Mạng
+                    </p>
+                    <p class="slide-nominated-sub">
+                        HD-Vietsub
+                    </p>
+                    <i class="fa-solid fa-play slide-nominated-play"></i>
+                </div>
+            </a>
+            <a href="http://127.0.0.1:5500/movie/pageWatchMovie.html" class="c-2-5 col l-3 m-6 f-12 slide-nominated-link slide-movie-nomination">
+                <div class="slide-nominated-ground">
+                    <div class="slide-nominated__cover-img">
+                        <img class="img-hover" src="https://chill-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&refresh=604800&resize_h=500&url=https%3A%2F%2Fi0.wp.com%2Fimg.phimmoichills.net%2Fimages%2Finfo%2Fshe-hulk-attorney-at-law.jpg" alt="">
+                    </div>
+                    <p class="slide-nominated-name">
+                        She-Hulk: Nữ Khổng Lồ Xanh
+                    </p>
+                    <p class="slide-nominated-sub">
+                        HD-Vietsub
+                    </p>
+                    <i class="fa-solid fa-play slide-nominated-play"></i>
+                </div>
+            </a>
+            <a href="http://127.0.0.1:5500/movie/pageWatchMovie.html" class="c-2-5 col l-3 m-6 f-12 slide-nominated-link slide-movie-nomination">
+                <div class="slide-nominated-ground">
+                    <div class="slide-nominated__cover-img">
+                        <img class="img-hover" src="https://chill-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&refresh=604800&resize_h=500&url=https%3A%2F%2Fi0.wp.com%2Fimg.phimmoichills.net%2Fimages%2Finfo%2Ftales-of-the-walking-dead-2022.jpg" alt="">
+                    </div>
+                    <p class="slide-nominated-name">
+                        Tales of the Walking Dead
+                    </p>
+                    <p class="slide-nominated-sub">
+                        HD-Vietsub
+                    </p>
+                    <i class="fa-solid fa-play slide-nominated-play"></i>
+                </div>
+            </a>
+            <a href="http://127.0.0.1:5500/movie/pageWatchMovie.html" class="c-2-5 col l-3 m-6 f-12 slide-nominated-link slide-movie-nomination">
+                <div class="slide-nominated-ground">
+                    <div class="slide-nominated__cover-img">
+                        <img class="img-hover" src="https://chill-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&refresh=604800&resize_h=500&url=https%3A%2F%2Fi0.wp.com%2Fimg.phimmoichills.net%2Fimages%2Finfo%2Fday-shift.jpg" alt="">
+                    </div>
+                    <p class="slide-nominated-name">
+                        Vỏ Bọc Thợ Săn
+                    </p>
+                    <p class="slide-nominated-sub">
+                        HD-Vietsub
+                    </p>
+                    <i class="fa-solid fa-play slide-nominated-play"></i>
+                </div>
+            </a>
+            <a href="http://127.0.0.1:5500/movie/pageWatchMovie.html" class="c-2-5 col l-3 m-6 f-12 slide-nominated-link slide-movie-nomination">
+                <div class="slide-nominated-ground">
+                    <div class="slide-nominated__cover-img">
+                        <img class="img-hover" src="https://chill-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&refresh=604800&resize_h=500&url=https%3A%2F%2Fi0.wp.com%2Fimg.phimmoichills.net%2Fimages%2Finfo%2Fhouse-of-the-dragon.jpg" alt="">
+                    </div>
+                    <p class="slide-nominated-name">
+                        Gia Tộc Rồng
+                    </p>
+                    <p class="slide-nominated-sub">
+                        HD-Vietsub
+                    </p>
+                    <i class="fa-solid fa-play slide-nominated-play"></i>
+                </div>
+            </a>
+        </div>
+        <h2 class="header__slide-nominated-movie header__slide--height-small">
+            PHIM SẮP CHIẾU
+        </h2> 
+        <div class="slide-nominated-movie row">
+            <a href="http://127.0.0.1:5500/movie/pageWatchMovie.html" class="c-2-5 col l-3 m-6 f-12 slide-nominated-link col-margin-bottom">
+                <div class="slide-nominated-ground">
+                    <div class="slide-nominated__cover-img">
+                        <img class="img-hover" src="https://chill-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&refresh=604800&resize_h=500&url=https%3A%2F%2Fi0.wp.com%2Fimg.phimmoichills.net%2Fimages%2Finfo%2Funder-her-control.jpg" alt="">
+                    </div>
+                    <p class="slide-nominated-name">
+                        Chiếc Lồng Vàng
+                    </p>
+                    <p class="slide-nominated-sub">
+                        HD-Vietsub
+                    </p>
+                    <i class="fa-solid fa-play slide-nominated-play"></i>
+                </div>
+            </a>
+            <a href="http://127.0.0.1:5500/movie/pageWatchMovie.html" class="c-2-5 col l-3 m-6 f-12 slide-nominated-link col-margin-bottom">
+                <div class="slide-nominated-ground">
+                    <div class="slide-nominated__cover-img">
+                        <img class="img-hover" src="https://chill-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&refresh=604800&resize_h=500&url=https%3A%2F%2Fi0.wp.com%2Fimg.phimmoichills.net%2Fimages%2Finfo%2Fi-came-by.jpg" alt="">
+                    </div>
+                    <p class="slide-nominated-name">
+                        I Came By
+                    </p>
+                    <p class="slide-nominated-sub">
+                        HD-Vietsub
+                    </p>
+                    <i class="fa-solid fa-play slide-nominated-play"></i>
+                </div>
+            </a>
+            <a href="http://127.0.0.1:5500/movie/pageWatchMovie.html" class="c-2-5 col l-3 m-6 f-12 slide-nominated-link col-margin-bottom">
+                <div class="slide-nominated-ground">
+                    <div class="slide-nominated__cover-img">
+                        <img class="img-hover" src="https://chill-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&refresh=604800&resize_h=500&url=https%3A%2F%2Fi0.wp.com%2Fimg.phimmoichills.net%2Fimages%2Finfo%2Fthe-ancient-city-of-loulan.jpg" alt="">
+                    </div>
+                    <p class="slide-nominated-name">
+                        Động Cát Biển Vùng Đất Cổ Lâu Lan
+                    </p>
+                    <p class="slide-nominated-sub">
+                        HD-Vietsub
+                    </p>
+                    <i class="fa-solid fa-play slide-nominated-play"></i>
+                </div>
+            </a>
+            <a href="http://127.0.0.1:5500/movie/pageWatchMovie.html" class="c-2-5 col l-3 m-6 f-12 slide-nominated-link col-margin-bottom">
+                <div class="slide-nominated-ground">
+                    <div class="slide-nominated__cover-img">
+                        <img class="img-hover" src="https://chill-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&refresh=604800&resize_h=500&url=https%3A%2F%2Fi0.wp.com%2Fimg.phimmoichills.net%2Fimages%2Finfo%2Ftoo-old-for-fairy-tales.jpg" alt="">
+                    </div>
+                    <p class="slide-nominated-name">
+                        Quá Tuổi Để Đọc Cổ Tích
+                    </p>
+                    <p class="slide-nominated-sub">
+                        HD-Vietsub
+                    </p>
+                    <i class="fa-solid fa-play slide-nominated-play"></i>
+                </div>
+            </a>
+            <a href="http://127.0.0.1:5500/movie/pageWatchMovie.html" class="c-2-5 col l-3 m-6 f-12 slide-nominated-link col-margin-bottom">
+                <div class="slide-nominated-ground">
+                    <div class="slide-nominated__cover-img">
+                        <img class="img-hover" src="https://chill-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&refresh=604800&resize_h=500&url=https%3A%2F%2Fi0.wp.com%2Fimg.phimmoichills.net%2Fimages%2Finfo%2Falienoid.jpg" alt="">
+                    </div>
+                    <p class="slide-nominated-name">
+                        Alienoid: Cuộc Chiến Xuyên Không
+                    </p>
+                    <p class="slide-nominated-sub">
+                        HD-Vietsub
+                    </p>
+                    <i class="fa-solid fa-play slide-nominated-play"></i>
+                </div>
+            </a>
+            <a href="http://127.0.0.1:5500/movie/pageWatchMovie.html" class="c-2-5 col l-3 m-6 f-12 slide-nominated-link col-margin-bottom">
+                <div class="slide-nominated-ground">
+                    <div class="slide-nominated__cover-img">
+                        <img class="img-hover" src="https://chill-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&refresh=604800&resize_h=500&url=https%3A%2F%2Fi0.wp.com%2Fimg.phimmoichills.net%2Fimages%2Finfo%2Fcatch-the-fair-one.jpg" alt="">
+                    </div>
+                    <p class="slide-nominated-name">
+                        Tìm Lại Công Bằng
+                    </p>
+                    <p class="slide-nominated-sub">
+                        HD-Vietsub
+                    </p>
+                    <i class="fa-solid fa-play slide-nominated-play"></i>
+                </div>
+            </a>
+            <a href="http://127.0.0.1:5500/movie/pageWatchMovie.html" class="c-2-5 col l-3 m-6 f-12 slide-nominated-link col-margin-bottom">
+                <div class="slide-nominated-ground">
+                    <div class="slide-nominated__cover-img">
+                        <img class="img-hover" src="https://chill-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&refresh=604800&resize_h=500&url=https%3A%2F%2Fi0.wp.com%2Fimg.phimmoichills.net%2Fimages%2Finfo%2Fdead-zone.jpg" alt="">
+                    </div>
+                    <p class="slide-nominated-name">
+                        Vùng Nguy Hiểm
+                    </p>
+                    <p class="slide-nominated-sub">
+                        HD-Vietsub
+                    </p>
+                    <i class="fa-solid fa-play slide-nominated-play"></i>
+                </div>
+            </a>
+            <a href="http://127.0.0.1:5500/movie/pageWatchMovie.html" class="c-2-5 col l-3 m-6 f-12 slide-nominated-link col-margin-bottom">
+                <div class="slide-nominated-ground">
+                    <div class="slide-nominated__cover-img">
+                        <img class="img-hover" src="https://chill-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&refresh=604800&resize_h=500&url=https%3A%2F%2Fi0.wp.com%2Fimg.phimmoichills.net%2Fimages%2Finfo%2Fslr.jpg" alt="">
+                    </div>
+                    <p class="slide-nominated-name">
+                        Máy Ảnh Tử Thần
+                    </p>
+                    <p class="slide-nominated-sub">
+                        HD-Vietsub
+                    </p>
+                    <i class="fa-solid fa-play slide-nominated-play"></i>
+                </div>
+            </a>
+            <a href="http://127.0.0.1:5500/movie/pageWatchMovie.html" class="c-2-5 col l-3 m-6 f-12 slide-nominated-link">
+                <div class="slide-nominated-ground">
+                    <div class="slide-nominated__cover-img">
+                        <img class="img-hover" src="https://chill-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&refresh=604800&resize_h=500&url=https%3A%2F%2Fi0.wp.com%2Fimg.phimmoichills.net%2Fimages%2Finfo%2Flove-between-fairy-and-devil.jpg" alt="">
+                    </div>
+                    <p class="slide-nominated-name">
+                        John Wick 4 – Sát Thủ John Wick Phần 4
+                    </p>
+                    <p class="slide-nominated-sub">
+                        HD-Vietsub
+                    </p>
+                    <i class="fa-solid fa-play slide-nominated-play"></i>
+                </div>
+            </a>
+            <a href="http://127.0.0.1:5500/movie/pageWatchMovie.html" class="c-2-5 col l-3 m-6 f-12 slide-nominated-link">
+                <div class="slide-nominated-ground">
+                    <div class="slide-nominated__cover-img">
+                        <img class="img-hover" src="https://chill-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&refresh=604800&resize_h=500&url=https%3A%2F%2Fi0.wp.com%2Fimg.phimmoichills.net%2Fimages%2Finfo%2Fdaeng-phra-khanong.jpg" alt="">
+                    </div>
+                    <p class="slide-nominated-name">
+                        Daeng: Hậu Duệ Tình Người Duyên Ma
+                    </p>
+                    <p class="slide-nominated-sub">
+                        HD-Vietsub
+                    </p>
+                    <i class="fa-solid fa-play slide-nominated-play"></i>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="footer">
+        <footer class="grid">
+            <footer class="row footer-content">
+                <div class="col c-6 m-12">
+                    <div class="footer__group">
+                        <a href="#" class="header-icon">
+                            <img src="https://s1.bunnycdn.ru/assets/sites/fmovies/logo2.png" alt="" class="img-logo">
+                        </a>
+                        <p>
+                            FMovies is top of 
+                            <strong>free streaming website</strong>,
+                             where to watch movies online free without registration required. With a big database and great features, we're confident FMovies is the best free movies online website in the space that you can't simply miss!
+                        </p>
+                        <a href="#">
+                            <i class="fab fa-twitter"></i>
+                            Connect with us on twitter
+                        </a>
+                        <p class="text-small">
+                            This site does not store any files on our server, we only linked to the media which is hosted on 3rd party services.
+                        </p>
+                    </div>
+                </div>
+                <div class="col c-2 m-0">
+                    <div class="footer__group">
+                        <ul>
+                            <li>
+                                <a href="#">New Movie</a>
+                            </li>
+                            <li>
+                                <a href="#">Movie theaters</a>
+                            </li>
+                            <li>
+                                <a href="#">Movie odd</a>
+                            </li>
+                            <li>
+                                <a href="#">Movie series</a>
+                            </li>
+                            <li>
+                                <a href="#">Movie action</a>
+                            </li>
+                            <li>
+                                <a href="#">Movie fantasy</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col c-2 m-0">
+                    <div class="footer__group">
+                        <ul>
+                            <li>
+                                <a href="#">Great Movie</a>
+                            </li>
+                            <li>
+                                <a href="#">Movie US</a>
+                            </li>
+                            <li>
+                                <a href="#">Movie Korea</a>
+                            </li>
+                            <li>
+                                <a href="#">Movie China</a>
+                            </li>
+                            <li>
+                                <a href="#">Movie Thailand</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col c-2 m-0">
+                    <div class="footer__group">
+                        <ul>
+                            <li>
+                                <a href="#">Hot Movie</a>
+                            </li>
+                            <li>
+                                <a href="#">I am Groot</a>
+                            </li>
+                            <li>
+                                <a href="#">Dead zone</a>
+                            </li>
+                            <li>
+                                <a href="#">Running with the Devil</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </footer>
+        </footer>
+    </div>
+    <!--commonJS-->
+    <script src="../movie/js/common.js/const.js"></script>
+    <script src="../movie/js/common.js/model.js"></script>
+</body>
+</html>

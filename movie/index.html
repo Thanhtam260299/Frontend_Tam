@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fmovie</title>
+    <link rel="icon" type="image/x-icon" href="https://icons.iconarchive.com/icons/iconicon/alpha-magnets/128/Letter-f-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Coiny&family=Fredoka+One&family=IBM+Plex+Serif:ital,wght@0,300;0,400;0,600;0,700;1,700&family=Inter:wght@100;200;300;400;500;600;700;800&family=Lato:ital,wght@0,300;0,400;0,700;1,400;1,700&family=Padauk:wght@400;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,400;1,500&family=Varela+Round&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../movie/fontawesome-free-6.1.1-web/css/all.min.css">
+    <link rel="stylesheet" href="../movie/css/home/base.css">
+    <link rel="stylesheet" href="../movie/css/home/style.css">
+    <link rel="stylesheet" href="../movie/css/home/reponsive.css">
+</head>
+<body onclick="closeUserBlock()">
+    <div class="header">
+        <div class="header__search">
+            <header class="header__cover--search grid">
+                <header class="header__logo">
+                    <a href="#" class="header__logo-link">
+                            <img src="https://s1.bunnycdn.ru/assets/sites/fmovies/logo2.png" alt="" class="img-logo">
+                    </a>
+                    <form action="" class="form-search">
+                        <input id="input__form-search" type="text" placeholder="Nhập tên phim, diễn viên...">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </form>
+                </header>
+                <ul class="header__list">
+                    <li class="header__icon header__icon--bulb">
+                            <i class="fa-solid fa-lightbulb"></i>
+                    </li>
+                    <li class="header__icon header__icon--sign-up">
+                        <i class="fa-solid fa-user"></i>
+                        <span class="header__sign">
+                            Sign Up
+                        </span>
+                    </li>
+                    <li class="header__icon header__icon--sign-in">
+                            <i class="fa-solid fa-right-to-bracket"></i>
+                            <span class="header__sign">
+                                Sign In
+                            </span>
+                    </li>
+                    <li class="header__icon header__icon--menu">
+                        <i class="fa-solid fa-bars"></i>
+                    </li>
+                    <li class="header__icon--user">
+                        <img src="https://scontent.fsgn5-10.fna.fbcdn.net/v/t39.30808-6/299624937_3381255322105621_2510058687588518433_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=joA4hBIFY9gAX8RjUbx&_nc_ht=scontent.fsgn5-10.fna&oh=00_AT9zqeT4BOlH0PpWQgo8OPiIXmUePrqVqcDWfxzJrVvbpQ&oe=632249EF" alt="">
+                        <div class="header__item-user">
+                            <div class="header__background-user">
+                                <i class="fa-solid fa-arrow-left-long"></i>
+                            </div>
+                            <div class="header__main-user">
+                                <div class="cover-img">
+                                    <img src="https://scontent.fsgn5-10.fna.fbcdn.net/v/t39.30808-6/299624937_3381255322105621_2510058687588518433_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=joA4hBIFY9gAX8RjUbx&_nc_ht=scontent.fsgn5-10.fna&oh=00_AT9zqeT4BOlH0PpWQgo8OPiIXmUePrqVqcDWfxzJrVvbpQ&oe=632249EF" alt="">
+                                    <i class="fa-solid fa-arrows-rotate"></i>
+                                </div>
+                                <header class="header__item-name-user">Phạm Thanh Tâm</header>
+                                <ul class="header__user-list1">
+                                    <li class="header__user-item">
+                                        <a href="#"><i class="fa-solid fa-key"></i></a>
+                                        <span class="item-sub">Đổi mật khẩu</span>
+                                    </li>
+                                    <li class="header__user-item header__user-log-out">
+                                        <a href="#"><i class="fa-solid fa-power-off"></i></a>
+                                        <span class="item-sub">Đăng xuất</span>
+                                    </li>
+                                    <li class="header__user-item">
+                                        <a href="#"> <i class="fa-brands fa-facebook-f"></i></a>
+                                        <span class="item-sub">Liên kết fb</span>
+                                    </li>
+                                </ul>
+                                <ul class="header__user-list2">
+                                    <li class="header__user-item2 user-item2--favourite" onclick="BtnshowFavourite()">
+                                        <a href="#">
+                                            <i class="fa-solid fa-heart"></i>
+                                            Danh mục yêu thích
+                                        </a>
+                                    </li>
+                                    <li class="header__user-item2 user-item2--management">
+                                        <a href="#">
+                                             <i class="fa-solid fa-bookmark"></i>
+                                             Quản lý tài khoản FMovie của bạn
+                                        </a>
+                                    </li>
+                                    <li class="header__user-item2 user-item2--vip">
+                                        <a href="#">
+                                            <i class="fa-solid fa-crown"></i>
+                                            FMovie VIP
+                                        </a>
+                                    </li>
+                                </ul>
+
+                                <div class="header__change-avatar">
+                                    <p class="header__content-list-avatar">
+                                        Hãy chọn 1 ảnh đại diện
+                                    </p>
+
+                                    <ul class="header__user-list-avatar">
+                                        <li class="user-item--avatar">
+                                            <img onclick="changeAvatar(this)" src="https://toigingiuvedep.vn/wp-content/uploads/2021/01/avatar-dep-cute.jpg" alt="">
+                                        </li>
+                                        <li class="user-item--avatar">
+                                            <img onclick="changeAvatar(this)" src="https://toigingiuvedep.vn/wp-content/uploads/2022/08/hinh-avatar-chill-co-gai-doi-non-600x600.jpg" alt="">
+                                        </li>
+                                        <li class="user-item--avatar">
+                                            <img onclick="changeAvatar(this)" src="https://toigingiuvedep.vn/wp-content/uploads/2021/01/anh-avatar-cho-con-gai-cuc-dep.jpg" alt="">
+                                        </li>
+                                        <li class="user-item--avatar">
+                                            <img onclick="changeAvatar(this)" src="https://halotravel.vn/wp-content/uploads/2020/03/cong-thuc-chinh-anh-foodie-mau-nang-30.jpg" alt="">
+                                        </li>
+                                        <li class="user-item--avatar">
+                                            <img onclick="changeAvatar(this)" src="https://toigingiuvedep.vn/wp-content/uploads/2022/03/avatar-dep-nu.jpg" alt="">
+                                        </li>
+                                        <li class="user-item--avatar">
+                                            <img onclick="changeAvatar(this)" src="https://luv.vn/wp-content/uploads/2021/11/avatar-gai-xinh-8.jpg" alt="">
+                                        </li>
+                                        <li class="user-item--avatar">
+                                            <img onclick="changeAvatar(this)" src="https://toigingiuvedep.vn/wp-content/uploads/2022/08/hinh-anh-avatar-chill-600x600.jpg" alt="">
+                                        </li>
+                                        <li class="user-item--avatar">
+                                            <img onclick="changeAvatar(this)" src="https://toigingiuvedep.vn/wp-content/uploads/2021/01/anh-dai-dien-dep-cho-nu.jpg" alt="">
+                                        </li>
+                                    </ul>
+                                    <span class="header__save-avatar">Save</span>
+                                </div>
+
+                            </div>
+                            <div class="header__confirm-save-avatar">
+                                <div class="confirm__save-avatar">
+                                    <p class="content-confirm">
+                                        Bạn có muốn lưu thay đổi?
+                                    </p>
+                                    <div class="btn-confirm-group">
+                                        <button onclick="saveAvatarYes()" class="btn-cofirm btn-confirm-yes">
+                                            Có
+                                        </button>
+                                        <button onclick="saveAvatarNo()" class="btn-cofirm btn-confirm-no">
+                                            Không
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="header__confirm-log-out">
+                                <div class="confirm__log-out">
+                                    <p class="content-confirm">
+                                        Bạn có muốn đăng xuất không?
+                                    </p>
+                                    <div class="btn-confirm-group">
+                                        <button onclick="logOutYes()" class="btn-cofirm btn-confirm-yes">
+                                            Có
+                                        </button>
+                                        <button onclick="logOutNo()" class="btn-cofirm btn-confirm-no">
+                                            Không
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </header>
+        </div>
+        <div class="header__navbar">
+            <div class="header__navbar-cover">
+                    <ul class="header__navbar-list grid">
+                        <li class="header__navbar-item navbar__select-home btn-home">
+                            <a href="#" class="navbar__select-movie">
+                                <i class="fa-solid fa-house-chimney"></i>
+                            </a>
+                        </li>
+                        <li class="header__navbar-item navbar__select-new-film">
+                            <a href="#" class="navbar__select-movie">
+                                new movie
+                            </a>
+                        </li>
+                        <li class="header__navbar-item navbar__select-category">
+                            <a href="#" class="navbar__select-movie navbar__select-movie--icon">
+                                Genre
+                                <i class="fa-solid fa-sort-down navbar-icon--down"></i>
+                            </a>
+                            <ul class="menu-items--genre">
+                            </ul>
+                        </li>
+                        <li class="header__navbar-item navbar__select-country">
+                            <a href="#" class="navbar__select-movie  navbar__select-movie--icon">
+                                country
+                                <i class="fa-solid fa-sort-down navbar-icon--down"></i>
+                            </a>
+                            <ul class="menu-items--country">
+                                
+                            </ul>
+                        </li>
+                        <li class="header__navbar-item navbar__select-odd-movie">
+                            <a href="#" class="navbar__select-movie">
+                                odd movie
+                            </a>
+                        </li>
+                        <li class="header__navbar-item navbar__select-series-movie">
+                            <a href="#" class="navbar__select-movie">
+                                series
+                            </a>
+                        </li>
+                        <li class="header__navbar-item navbar__select-movie-theaters">
+                            <a href="#" class="navbar__select-movie">
+                                trailer
+                            </a>
+                        </li>
+                        <li class="header__navbar-item navbar__select-anime">
+                            <a href="#" class="navbar__select-movie">
+                                anime
+                            </a>
+                        </li>
+                        <li class="header__navbar-item navbar__select-trailer">
+                            <a href="#" class="navbar__select-movie">
+                                top rating
+                            </a>
+                        </li>
+                    </ul>
+            </div>
+        </div>
+    </div>
+    <!--HOME PAGE-->
+    <div class="home grid" id="home-page">
+        <div class="row-big">
+            <div class="col-big c-8 l-12 home__slide-adv">
+                <div class="row-big row-no-wrap">
+                    <div class="home__slide-item c-12 col-big">
+                        <img src="https://vtv1.mediacdn.vn/thumb_w/640/2019/12/31/rftse7lhlc2jrwf7srau0fvrveq-15778030119041903272605.jpg" alt="">
+                        
+                    </div>
+                    <div class="home__slide-item c-12 col-big">
+                        <img src="https://tophinhanhdep.com/wp-content/uploads/2021/10/Fast-and-Furious-Wallpapers.jpg" alt="">
+                    </div>
+                    <div class="home__slide-item c-12 col-big">
+                        <img src="https://znews-photo.zingcdn.me/w860/Uploaded/wopthuo/2014_05_13/Optimus_still_2_Sword_pointing.jpg" alt="">
+                    </div>
+                    <div class="home__slide-item c-12 col-big">
+                        <img src="https://i.bloganchoi.com/bloganchoi.com/wp-content/uploads/2022/06/nobita-va-nguoi-ban-khung-long-696x392.jpg?fit=700%2C20000&quality=95&ssl=1" alt="">
+                    </div>
+                    <div class="home__slide-dot-page">
+                        <span class="dot-page"></span>
+                        <span class="dot-page"></span>
+                        <span class="dot-page"></span>
+                        <span class="dot-page"></span>
+                    </div>
+                    <span id="prev" class="prev"><i class="fas fa-angle-left"></i></span>
+                    <span id="next" class="next"><i class="fas fa-angle-right"></i></span>
+                </div>
+            </div>
+            <div class="c-4-3 l-0 col-big">
+                <div class="top-view">
+                    <header class="top-view__header">
+                        <h2>TOP VIEW</h2>
+                    </header>
+                    <ul class="top-view__list-items">
+                    </ul>
+                </div>    
+            </div>
+        </div>
+        <div class="header__slide-bar">
+            <h2 class="header__slide-nominated-movie">
+                PHIM ĐỀ CỬ
+            </h2>
+            <div class="div">    
+                <span class="prev prev-header prev-header1"><i class="fas fa-angle-left"></i></span>
+                <span class="next next-header next-header1"><i class="fas fa-angle-right"></i></span>
+            </div>
+        </div>
+        <div id="intervalHeader1" class="slide-nominated-movie row row-no-wrap genre-render">
+        </div>
+        <div class="header__slide-bar margin-top-header">
+            <h2 class="header__slide-nominated-movie">
+                PHIM LẺ MỚI CẬP NHẬT
+            </h2>
+            <div class="div">    
+                <span id="prev-header2" class="prev prev-header"><i class="fas fa-angle-left"></i></span>
+                <span id="next-header2" class="next next-header"><i class="fas fa-angle-right"></i></span>
+            </div>
+        </div>
+        <div id="intervalHeader2" class="slide-nominated-movie row row-no-wrap odd-render">
+            
+        </div>
+        <h2 class="header__slide-nominated-movie ">
+            PHIM BỘ MỚI CẬP NHẬT
+        </h2>
+        <div class="slide-nominated-movie row row-no-wrap list-series-movie">
+        </div>   
+        <h2 class="header__slide-nominated-movie header__slide--height-small">
+            PHIM SẮP CHIẾU
+        </h2> 
+        <div class="slide-nominated-movie row  movie-coming">
+        </div>
+        
+        <div class="header__slide-bar header__slide--height-small">
+            <h2 class="header__slide-nominated-movie">
+                DIỄN VIÊN NỔI BẬT
+            </h2> 
+            <div class="div">    
+                <span id="prev-header3" class="prev prev-header"><i class="fas fa-angle-left"></i></span>
+                <span id="next-header3" class="next next-header"><i class="fas fa-angle-right"></i></span>
+            </div>
+        </div>
+        <div class="slide-nominated-movie row row-no-wrap">
+            <a href="#" class="c-1 l-2 s-3 col slide-movie-cast ">
+                <div class="slide-nominated-ground">
+                    <div class="slide-nominated__cover-img slide-nominated__cover-cast">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXvKutSSHttRETKGjeDXZDOKWgXzo_KLvq8nRiKd5CcA&s" alt="">
+                    </div>
+                    <p class="slide-nominated-name-cast">
+                        Robert Downey Jr
+                    </p>
+                </div>
+            </a>
+            <a href="#" class="c-1 l-2 s-3 col slide-movie-cast">
+                <div class="slide-nominated-ground">
+                    <div class="slide-nominated__cover-img slide-nominated__cover-cast">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2kVQ7dAeTmxgjOCEw2YET4aRuqXErBB2MioqzuqZo3A&s" alt="">
+                    </div>
+                    <p class="slide-nominated-name-cast">
+                        Scarlett Johansson
+                    </p>
+                </div>
+            </a>
+            <a href="#" class="c-1 l-2 s-3 col slide-movie-cast">
+                <div class="slide-nominated-ground">
+                    <div class="slide-nominated__cover-img slide-nominated__cover-cast">
+                        <img src="data:image/jpeg;base64,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" alt="">
+                    </div>
+                    <p class="slide-nominated-name-cast">
+                        Chris Evans
+                    </p>
+                </div>
+            </a>
+            <a href="#" class="c-1 l-2 s-3 col slide-movie-cast">
+                <div class="slide-nominated-ground">
+                    <div class="slide-nominated__cover-img slide-nominated__cover-cast">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI4vtXDpNBe8c3Q9k70r18JbABTR4pu_JQMz7OnywM3Q&s" alt="">
+                    </div>
+                    <p class="slide-nominated-name-cast">
+                        Mark Ruffalo
+                    </p>
+                </div>
+            </a>
+            <a href="#" class="c-1 l-2 s-3 col slide-movie-cast">
+                <div class="slide-nominated-ground">
+                    <div class="slide-nominated__cover-img slide-nominated__cover-cast">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXoYem8B1rCauNfuoBLIqc4nU3zn5zH2avtBJ1pBtO3A&s" alt="">
+                    </div>
+                    <p class="slide-nominated-name-cast">
+                        Chris Hemsworth
+                    </p>
+                </div>
+            </a>
+            <a href="#" class="c-1 l-2 s-3 col slide-movie-cast">
+                <div class="slide-nominated-ground">
+                    <div class="slide-nominated__cover-img slide-nominated__cover-cast">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5yxbxZGV9x3FdTbHBaY6M6gK04r--n6UVDFvtxWeVbA&s" alt="">
+                    </div>
+                    <p class="slide-nominated-name-cast">
+                        Jeremy Renner
+                    </p>
+                </div>
+            </a>
+            <a href="#" class="c-1 l-2 s-3 col slide-movie-cast">
+                <div class="slide-nominated-ground">
+                    <div class="slide-nominated__cover-img slide-nominated__cover-cast">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5KeD6UF-0LbLUCFG85_llaIA2Q4VwieaLHEX_VgdfLQ&s" alt="">
+                    </div>
+                    <p class="slide-nominated-name-cast">
+                        Tom Hiddleston
+                    </p>
+                </div>
+            </a>
+            <a href="#" class="c-1 l-2 s-3 col slide-movie-cast">
+                <div class="slide-nominated-ground">
+                    <div class="slide-nominated__cover-img slide-nominated__cover-cast">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCgtCOWiMP1jUNoeLe2CyPLK6lN9mfLgx-Anbr3CfrYQ&s" alt="">
+                    </div>
+                    <p class="slide-nominated-name-cast">
+                        Samuel L. Jackson
+                    </p>
+                </div>
+            </a>
+            <a href="#" class="c-1 l-2 s-3 col slide-movie-cast">
+                <div class="slide-nominated-ground">
+                    <div class="slide-nominated__cover-img slide-nominated__cover-cast">
+                        <img src="https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcQAXPKam2rhaT6o7wv3xcm8Z7agcVVEAXtrhYNhGZ1WfU1CfLw2X7RBOkqp&s=19" alt="">
+                    </div>
+                    <p class="slide-nominated-name-cast">
+                        Don Cheadle
+                    </p>
+                </div>
+            </a>
+            <a href="#" class="c-1 l-2 s-3 col slide-movie-cast">
+                <div class="slide-nominated-ground">
+                    <div class="slide-nominated__cover-img slide-nominated__cover-cast">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0bep9RdW89_GWODYZ1JF-LsppI9rPHX31qYCS0HYLGQ&s" alt="">
+                    </div>
+                    <p class="slide-nominated-name-cast">
+                        Gwyneth Paltrow
+                    </p>
+                </div>
+            </a>
+            <a href="#" class="c-1 l-2 s-3 col slide-movie-cast">
+                <div class="slide-nominated-ground">
+                    <div class="slide-nominated__cover-img slide-nominated__cover-cast">
+                        <img src="https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcQ_aeMJLX9DKdmcbuRqB8558PQUveigFfYUihJM5TEH2DWmdfXSY4VwhkCt&s=19" alt="">
+                    </div>
+                    <p class="slide-nominated-name-cast">
+                        Cobie Smulders
+                    </p>
+                </div>
+            </a>
+            <a href="#" class="c-1 l-2 s-3 col slide-movie-cast">
+                <div class="slide-nominated-ground">
+                    <div class="slide-nominated__cover-img slide-nominated__cover-cast">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKiXMJ1RvXxp0lTt75YWhZraoWb5ptaBmPb6esHBbTPA&s" alt="">
+                    </div>
+                    <p class="slide-nominated-name-cast">
+                        Paul Bettany
+                    </p>
+                </div>
+            </a>
+            <a href="#" class="c-1 l-2 s-3 col slide-movie-cast">
+                <div class="slide-nominated-ground">
+                    <div class="slide-nominated__cover-img slide-nominated__cover-cast">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkevKb9dGn27dzCBYqDqa6zUtPxvofNrK_UkNgs4cfZQ&s" alt="">
+                    </div>
+                    <p class="slide-nominated-name-cast">
+                        Maximiliano Hernández
+                    </p>
+                </div>
+            </a>
+            <a href="#" class="c-1 l-2 s-3 col slide-movie-cast">
+                <div class="slide-nominated-ground">
+                    <div class="slide-nominated__cover-img slide-nominated__cover-cast">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMms1RxqBScKNsOsNj8MPGxhH-_AfLEzi8AnPRYiMM3w&s" alt="">
+                    </div>
+                    <p class="slide-nominated-name-cast">
+                        Jenny Agutter
+                    </p>
+                </div>
+            </a>
+            <a href="#" class="c-1 l-2 s-3 col slide-movie-cast">
+                <div class="slide-nominated-ground">
+                    <div class="slide-nominated__cover-img slide-nominated__cover-cast">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUzKfbbbTTnsNOvN7h50vvZnny1F94Pf3bHEolKWqUcQ&s" alt="">
+                    </div>
+                    <p class="slide-nominated-name-cast">
+                        Clark Gregg
+                    </p>
+                </div>
+            </a>
+            <a href="#" class="c-1 l-2 s-3 col slide-movie-cast">
+                <div class="slide-nominated-ground">
+                    <div class="slide-nominated__cover-img slide-nominated__cover-cast">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWNVG9dMOrlYj_1_LO2G6DSIncxJF1Pe2HZ5IfRFg6xQ&s" alt="">
+                    </div>
+                    <p class="slide-nominated-name-cast">
+                        Powers Boothe
+                    </p>
+                </div>
+            </a>
+        </div>
+    </div>
+    <!--PER PAGE-->
+    <div id="per-page">
+        <div class="container__app grid">
+            <div class="app__nav-bar">
+                <ul class="nav-bar__list">
+                    <li class="nav-bar__item btn-home">
+                        <a href="#" class="item__link">
+                            <i class="fa-solid fa-house-chimney"></i>
+                            Trang chủ
+                            <i class="fa-sharp fa-solid fa-angle-right icon-angle"></i> 
+                        </a>
+                    </li>
+                    <li class="nav-bar__item">
+                        <a href="#" class="item__link item__link-genre">
+                            Phim hành động
+                        </a>
+                        <i class="fa-sharp fa-solid fa-angle-right icon-angle"></i> 
+                    </li>
+                    <li class="nav-bar__item" id="nav-bar__item-name">
+                        Name Movie
+                    </li>
+                </ul>
+            </div>
+            <div class="app__body">
+                <div id="source-movie" class="body__movie">
+                    <video width="100%" height="540px" controls poster="https://i.pinimg.com/originals/c4/0b/56/c40b56446ae6f221e20ea4dfb708db21.jpg">
+                        <source src="../movie/video/SPIDER-MAN- NO WAY HOME - Official Trailer.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="body__content">
+                    <h3 class="content__name-movie">
+                        Bà Chủ 2
+                    </h3>
+                    <div class="content__interactive">
+                        <div class="content__like-share">
+                            <a href="#" class="content__icon-common content__like">
+                                <i class="fa-solid fa-thumbs-up"></i>
+                                Like
+                                <span class="like-number">
+                                    10
+                                </span>
+                            </a>
+                            <a href="#" class="content__icon-common content__share">
+                                <i class="fa-solid fa-share"></i>
+                                Share
+                            </a>
+                            <a href="#" onclick="addListFavourite()" class="content__icon-common content__favourite">
+                                <span class="btn-favourite">
+                                    Yêu thích
+                                </span>
+                                <i class="fa-solid fa-heart"></i>
+                            </a>
+                        </div>
+                        <div class="content__rating">
+                            <i class="fa-solid fa-star icon__rating"></i>
+                            <i class="fa-solid fa-star icon__rating"></i>
+                            <i class="fa-solid fa-star icon__rating"></i>
+                            <i class="fa-solid fa-star icon__rating"></i>
+                            <i class="fa-solid fa-star icon__rating"></i>
+                            <i class="fa-solid fa-star icon__rating"></i>
+                            <i class="fa-solid fa-star icon__rating"></i>
+                            <i class="fa-solid fa-star icon__rating"></i>
+                            <i class="fa-solid fa-star icon__rating"></i>
+                            <i class="fa-solid fa-star icon__rating"></i>
+                            <span class="ratings">
+                                20 ratings
+                            </span>
+                        </div>
+                    </div>
+                    <div class="content__movie">
+                        <h4 class="movie__heading">
+                            Nội dung phim Bà Chủ 2
+                        </h4>
+                        <p class="movie__content">
+                            Bà Chủ 2 Queen of Triads 2 2022 Full HD Vietsub Thuyết Minh Bối cảnh của bộ phim tập trung vào Hồng Kông những năm 1970. Phim kể về câu chuyện của White Rose (do Xu Dongdong thủ vai), một công lý của Ủy ban độc lập chống tham nhũng, người được lệnh phải lẻn đến tay trùm xã hội đen Lei Wan Wan (do Xie Tianhua) để thu thập bằn
+                        </p>
+                    </div>
+                    <div class="content__info">
+                        <ul class="list-info">
+                            <li class="item-info">
+                                Đang phát: 
+                                <span>
+                                    Full HD
+                                </span>
+                            </li>
+                            <li class="item-info">
+                                Năm phát hành:
+                                <span>
+                                    Trung Quốc
+                                </span>
+                            </li>
+                            <li class="item-info">
+                                Quốc gia: 
+                                <span>
+                                    Trung Quốc
+                                </span>
+                            </li>
+                            <li class="item-info">
+                                Thể loại: 
+                                <span>
+                                    Phim hành động
+                                </span>
+                            </li>
+                            <li class="item-info">
+                                Đạo diễn:
+                                <span>
+                                    Vô danh
+                                </span>
+                            </li>
+                            <li class="item-info">
+                                Thời lượng:
+                                <span>
+                                    90p
+                                </span>
+                            </li>
+                            <li class="item-info">
+                                Diễn viên:
+                                <span>
+                                    Từ Đông Đông, Tạ Miêu, Liu Teng Yuan,
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="content__comment">
+                        <h4 class="comment__header">
+                            Comment
+                        </h4>
+                        <div class="comment__input">
+                            <div class="avatar">
+                                <img src="https://scontent.fsgn5-10.fna.fbcdn.net/v/t39.30808-6/299624937_3381255322105621_2510058687588518433_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=joA4hBIFY9gAX8RjUbx&_nc_ht=scontent.fsgn5-10.fna&oh=00_AT9zqeT4BOlH0PpWQgo8OPiIXmUePrqVqcDWfxzJrVvbpQ&oe=632249EF" alt="">
+                            </div>
+                            <div class="cover__input">
+                                <input type="text" oninput="inputComment()" class="input" placeholder="Viết bình luận...">
+                                <button class="submit">Đăng bài</button>
+                                <span class="err-comment">Vui lòng nhập nội dung!</span>
+                            </div>
+                        </div>
+                        <ul class="comment__list">
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="grid">
+            <div class="header__slide-bar">
+                <h2 class="header__slide-nominated-movie">
+                    PHIM ĐỀ CỬ
+                </h2>
+                <div class="div">    
+                    <span class="prev prev-header prev-header1"><i class="fas fa-angle-left"></i></span>
+                    <span class="next next-header next-header1"><i class="fas fa-angle-right"></i></span>
+                </div>
+            </div>
+            <div id="intervalHeader1" class="slide-nominated-movie row row-no-wrap genre-render">
+            </div>
+            <h2 class="header__slide-nominated-movie header__slide--height-small">
+                PHIM SẮP CHIẾU
+            </h2> 
+            <div class="slide-nominated-movie row movie-coming">
+            </div>
+        </div>
+    </div>
+    <!-- PAGE FAVOURITE  -->
+    <div class="grid grid-favourite">
+        <h2 class="header__slide-nominated-movie header__slide--height-small">
+            PHIM YÊU THÍCH
+        </h2>
+        <div class="slide-nominated-movie row favourite">
+        </div>
+    </div>
+    <!--FOOTER-->
+    <div class="footer">
+        <footer class="grid">
+            <footer class="row footer-content">
+                <div class="col c-6 m-12">
+                    <div class="footer__group">
+                        <a href="#" class="header-icon">
+                            <img src="https://s1.bunnycdn.ru/assets/sites/fmovies/logo2.png" alt="" class="img-logo">
+                        </a>
+                        <p>
+                            FMovies is top of 
+                            <strong>free streaming website</strong>,
+                             where to watch movies online free without registration required. With a big database and great features, we're confident FMovies is the best free movies online website in the space that you can't simply miss!
+                        </p>
+                        <a href="#">
+                            <i class="fab fa-twitter"></i>
+                            Connect with us on twitter
+                        </a>
+                        <p class="text-small">
+                            This site does not store any files on our server, we only linked to the media which is hosted on 3rd party services.
+                        </p>
+                    </div>
+                </div>
+                <div class="col c-2 m-0">
+                    <div class="footer__group">
+                        <ul>
+                            <li>
+                                <a href="#">New Movie</a>
+                            </li>
+                            <li>
+                                <a href="#">Movie theaters</a>
+                            </li>
+                            <li>
+                                <a href="#">Movie odd</a>
+                            </li>
+                            <li>
+                                <a href="#">Movie series</a>
+                            </li>
+                            <li>
+                                <a href="#">Movie action</a>
+                            </li>
+                            <li>
+                                <a href="#">Movie fantasy</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col c-2 m-0">
+                    <div class="footer__group">
+                        <ul>
+                            <li>
+                                <a href="#">Great Movie</a>
+                            </li>
+                            <li>
+                                <a href="#">Movie US</a>
+                            </li>
+                            <li>
+                                <a href="#">Movie Korea</a>
+                            </li>
+                            <li>
+                                <a href="#">Movie China</a>
+                            </li>
+                            <li>
+                                <a href="#">Movie Thailand</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col c-2 m-0">
+                    <div class="footer__group">
+                        <ul>
+                            <li>
+                                <a href="#">Hot Movie</a>
+                            </li>
+                            <li>
+                                <a href="#">I am Groot</a>
+                            </li>
+                            <li>
+                                <a href="#">Dead zone</a>
+                            </li>
+                            <li>
+                                <a href="#">Running with the Devil</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </footer>
+        </footer>
+    </div>
+    <!-- Form login -->
+    <div class="login">
+        <form action="" method="POST" class="form sign-up" id="form-1">
+            <i class="fa-solid fa-xmark form-close"></i>
+
+            <h3 class="heading">Đăng ký tài khoản FMovie</h3>
+            <p class="form-message-fail">
+                Vui lòng nhập đầy đủ thông tin 
+                <i class="fa-solid fa-face-sad-tear"></i>
+                </p>
+            <p class="form-message-success">
+                Bạn đã đăng ký thành công
+                <i class="fa-solid fa-circle-check"></i>
+            </p>
+            <p class="form-message-checkUser">
+                Tên đăng nhập đã được sử dụng
+                <i class="fa-regular fa-face-smile-wink"></i>
+            </p>
+            <p class="desc">    </p>
+        
+            <div class="spacer"></div>
+        
+            <div class="form-group ">
+            <label for="fullname" class="form-label">Tên đăng nhập</label>
+            <input id="fullname" name="fullname" type="text" placeholder="Tên đăng nhập" class="form-control fullname-sign-up">
+            <span class="form-message"></span>
+            </div>
+        
+            <div class="form-group">
+            <label for="password" class="form-label">Mật khẩu</label>
+            <input id="password" name="password" type="password" placeholder="Nhập mật khẩu" class="form-control password-sign-up">
+            <span class="form-message"></span>
+            </div>
+        
+            <div class="form-group">
+            <label for="password_confirmation" class="form-label">Nhập lại mật khẩu</label>
+            <input id="password_confirmation" name="password_confirmation" placeholder="Nhập lại mật khẩu" type="password" class="form-control confirmation-sign-up">
+            <span class="form-message"></span>
+            </div>
+
+            <p class="form-submit" onclick="btnSubmitSignUp()">Đăng ký</p>
+
+            <p class="form-sing">Bạn đã có tài khoản? <a class="form-sing-link" onclick="swapSignIn()">Đăng nhập</a> </p>
+
+            <p class="form-footer">
+                Việc bạn tiếp tục sử dụng trang web này đồng nghĩa bạn đồng ý với
+                <a href="#" class="form-footer-link">Điều khoản sử dụng</a>
+                của chúng tôi.
+            </p>
+        </form>
+
+        <form action="" method="POST" class="form sign-in" id="form-2">
+            <i class="fa-solid fa-xmark form-close"></i>
+
+            <h3 class="heading">Đăng nhập vào FMovie</h3>
+            <p class="form-message-fail">
+                Bạn đã nhập sai user hoặc password 
+                <i class="fa-solid fa-face-sad-tear"></i>
+                </p>
+            <p class="form-message-success">
+                Bạn đã đăng nhập thành công
+                <i class="fa-solid fa-circle-check"></i>
+            </p>
+            <p class="form-message-checkUser">
+                Vui lòng nhập user và password
+                <i class="fa-regular fa-face-smile-wink"></i>
+            </p>
+            <p class="desc">    </p>
+        
+            <div class="spacer"></div>
+        
+            <div class="form-group ">
+            <label for="fullname" class="form-label">Tên đăng nhập</label>
+            <input id="fullname" name="fullname" oninput="resetSTT()" type="text" placeholder="Tên đăng nhập" class="form-control">
+            <span class="form-message"></span>
+            </div>
+        
+            <div class="form-group">
+            <label for="password" class="form-label">Mật khẩu</label>
+            <input id="password" name="password" oninput="resetSTT()" type="password" placeholder="Nhập mật khẩu" class="form-control">
+            <span class="form-message"></span>
+            </div>
+
+            <div class="form-group form-save-pass">
+                <input id="checkbox" onchange="changeBox(this)" type="checkbox">
+                <label for="checkbox">Lưu mật khẩu</label>
+            </div>
+
+            <p class="form-submit" onclick="btnSubmitSignIn()">Đăng nhập</p>
+
+            <p class="form-sing">Bạn chưa có tài khoản? <a class="form-sing-link" onclick="swapSignUp()">Đăng ký</a> </p>
+
+            <p class="form-footer">
+                Việc bạn tiếp tục sử dụng trang web này đồng nghĩa bạn đồng ý với
+                <a href="#" class="form-footer-link">Điều khoản sử dụng</a>
+                của chúng tôi.
+            </p>
+        </form>
+    </div>
+
+<!-- validator -->
+<script src="../movie/js/validator.js/validator.js"></script>
+<!-- home page -->
+<script src="../movie/js/homePage/const.js"></script>
+<script src="../movie/js/homePage/model.js"></script>
+<script src="../movie/js/homePage/view.js"></script>
+<!-- COMMON -->
+    <script src="../movie/js/common.js/const.js"></script>
+    <script src="../movie/js/common.js/model.js"></script>
+
+</body>
+</html>
