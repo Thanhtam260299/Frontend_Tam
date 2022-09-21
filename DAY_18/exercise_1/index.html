@@ -6,36 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercise 1</title>
     <link rel="stylesheet" href="./style.css">
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
 </head>
 <body>
-    <div class="container">
-        <input class="input" type="text" oninput="check()" placeholder="Vui lòng nhập...">
-        <div class="list-result">
-        </div>
-    </div>
-    <script>
-        let     ELEMENT_INPUT            = document.querySelector('.input')
-        let     html;
-        const   ELEMENT_LIST_RESULT      = document.querySelector('.list-result')
-        const   ELEMENT_ITEM_RESULT      = document.querySelector('.item-result')
-        let     arrListGenre             = [
-        {item : 'Action'}, {item : 'Horrortrdsf'}, {item : 'Familyfsdf'}, {item : 'Crimetyutsgdg'},{item : 'Warsdfssf'}, {item : 'Kungfu'},{item : 'Adventuredfgsfgsdf'},{item : 'Animation'},{item : 'Romance'},
-        {item : 'Historyfdsf'}, {item : 'Dramavb '}, {item : 'Documetaryjkhjkjh'}, {item : 'Sportsfsfs'}, {item : 'TV Showhgfh'}, {item : 'Musicsfdg'}, {item : 'Biography'}
-]       
-
-        const check = () => {
-            for(let n = 0; n <= arrListGenre.length - 1; n++) {
-                for(let i = 0; i <= arrListGenre[n].item.length - 1; i++)
-                    if (arrListGenre[n].item[i] == ELEMENT_INPUT.value) {
-                      ELEMENT_LIST_RESULT.innerHTML = `<p class="item-result">${arrListGenre[n].item}</p>`
-                      console.log(ELEMENT_INPUT.value)
-                    } else {
-                      // ELEMENT_LIST_RESULT.innerHTML = ''
-                      console.log('no')
-                    }
-            }
-        }
-
-    </script>
+    <div id="root"></div>
+    <script src="./const.js"></script>
 </body>
 </html>

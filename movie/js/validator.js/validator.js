@@ -16,8 +16,8 @@ ELEMENT_RESULT_CHECK_USER           = document.querySelector('#form-1 .form-mess
 ELEMENT_SIGN_IN_FAIL                = document.querySelector('#form-2 .form-message-fail')
 ELEMENT_SIGN_IN_SUCCESS             = document.querySelector('#form-2 .form-message-success')
 ELEMENT_SIGN_IN_NULL                = document.querySelector('#form-2 .form-message-checkUser')
-ELEMENT_NAME_INPUT                  = document.querySelector('#form-2 #fullname')
-ELEMENT_PASSWORD_INPUT              = document.querySelector('#form-2 #password')
+ELEMENT_NAME_INPUT                  = document.querySelector('#form-2 #fullname1')
+ELEMENT_PASSWORD_INPUT              = document.querySelector('#form-2 #password1')
 ELEMENT_CHECKBOX                    = document.getElementById("checkbox");
 ELEMENT_SHOW_NAME_USER              = document.querySelector('.header__item-name-user')
 ELEMENT_OPEN_CHANGE_AVATAR          = document.querySelector('.cover-img')
@@ -47,18 +47,19 @@ let toggleForm      = true
 let ChangeAvatar    = true
 
 
-// Đăng nhập, đăng ký
+// đăng ký
 const btnSignUp = () => {
     ELEMENT_LOG_IN.style.display = 'block'
     ELEMENT_SIGN_UP.style.display = 'block'
 }
 
+//  đăng nhập
 const btnSignIn = () => {
     ELEMENT_LOG_IN.style.display = 'block'
     ELEMENT_SIGN_IN.style.display = 'block'
 }
 
-// close form
+//  close form
 const closeForm = () => {
     ELEMENT_LOG_IN.style.display = 'none'
     ELEMENT_SIGN_UP.style.display = 'none'
@@ -111,12 +112,14 @@ ELEMENT_SIGN_IN.addEventListener('click', function(event){
     event.stopPropagation()
 })
 
+// chuyển từ đăng ký sang đăng nhập
 const swapSignIn = () => {
     btnSignIn()
     resetForm()
     ELEMENT_SIGN_UP.style.display = 'none'   
 }
 
+// chuyển từ đăng nhập sang đăng ký
 const swapSignUp = () => {
     btnSignUp()
     resetForm()
@@ -184,16 +187,6 @@ function Validator(options) {
     }
 }
 
-// Định nghĩa các rules
-// Nói chung thì cái chỗ này là kiểu constructor nó định nghĩa cho cái isRequired 
-// hay thằng kia bằng 1 cái function
-// để khi nó trả về gì thì bên kia sẽ nhận như vậy
-
-// Nguyên tắc của cái rule là
-// 1. khi kh có lỗi thì trả về undefined
-// 2. khi có lỗi thì nhập vào'Vui lòng nhập trường này'
-// trim trong đây dùng để loại bỏ các dấu cách lun
-
 Validator.isRequired = function (selector) {
     return {
         selector: selector,
@@ -202,16 +195,6 @@ Validator.isRequired = function (selector) {
         },
     };
 };
-
-// Validator.isEmail = function (selector) {
-//     return {
-//         selector: selector,
-//         test: function (value) {
-//             var regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-//             return regex.test(value) ? undefined : "Trường này phải là email";
-//         },
-//     };
-// };
 
 Validator.isMinLength = function (selector,min) {
     return {
@@ -230,7 +213,6 @@ Validator.isCheckPassword= function (selector, getValuePassword) {
         },
     };
 };
-
 
 /////////////////////
 Validator({
@@ -276,7 +258,7 @@ const changeBox = (oncheck) => {
 }
 
 // sign up
-  const btnSubmitSignUp = () => {
+const btnSubmitSignUp = () => {
     account = getAccountLocalStorage()
     let checkName = account.some(item => {
         return item.name == resultFullName
@@ -298,10 +280,9 @@ const changeBox = (oncheck) => {
         errPassword     = ''
         errConfirm      = ''
     }
-  }
+}
 
-  // sign in
-  
+// sign in  
 const btnSubmitSignIn = () => {
     account = getAccountLocalStorage()
     let checkName = account.find((item) => {
@@ -312,12 +293,16 @@ const btnSubmitSignIn = () => {
         var checkPass = checkName.password ==  ELEMENT_PASSWORD_INPUT.value
         if (checkPass) {
             if(checkBox) {
+                // nếu có lưu mật khẩu thì chạy vô đây
                 if(checkName.avatar){
+                    // đăng nhập nếu thấy user đó có avatar thì lưu avatar lên local
                     localStorage.setItem('saveAccount', JSON.stringify({user :checkName.name , pass : checkName.password, avatar: checkName.avatar }))
                 } else {
+                    // ngược lại ở trên khỏi lưu avatar
                     localStorage.setItem('saveAccount', JSON.stringify({user :checkName.name , pass : checkName.password }));
                 }
             } else {
+                // reset lại local
                 localStorage.setItem('saveAccount', JSON.stringify([]));
             }
             ELEMENT_SIGN_IN_SUCCESS.style.display = 'block'
@@ -330,38 +315,39 @@ const btnSubmitSignIn = () => {
                 ELEMENT_AVATAR_HOME.src             = checkName.avatar 
                 ELEMENT_AVATAR_COMMENT.src          = checkName.avatar
             }
+            localStorage.setItem('login', JSON.stringify({user :checkName.name , pass : checkName.password, avatar: checkName.avatar }))
+            location.reload()
         }
-        console.log('1')
     } else if (ELEMENT_NAME_INPUT.value == '' || ELEMENT_PASSWORD_INPUT.value == '') {
         ELEMENT_SIGN_IN_NULL.style.display  = 'block'
-        console.log('2')
     } else {
         ELEMENT_SIGN_IN_FAIL.style.display  = 'block'
-        console.log('3')
     }
     checkBox = false;
-    console.log('test')
 }
 
-ELEMENT_USER.addEventListener('click', function(event){
-    event.stopPropagation()
-})
-
-const closeUserBlock = () => {
-    ELEMENT_BLOCK_USER.style.display = 'none'
-    toggleForm = true
-}
-
+// reset lại trạng thái khi đăng nhập
 const resetSTT = () => {
     ELEMENT_SIGN_IN_SUCCESS.style.display   = 'none'
     ELEMENT_SIGN_IN_NULL.style.display      = 'none'
     ELEMENT_SIGN_IN_FAIL.style.display      = 'none'
 }
 
+//  reset lại trạng thái khi đăng ký
 const resetResultSignUp = () => {
     ELEMENT_RESULT_FAIL.style.display       = 'none'
     ELEMENT_RESULT_CHECK_USER.style.display = 'none'
     ELEMENT_RESULT_SUCCESS.style.display    = 'none'
+}
+
+ELEMENT_USER.addEventListener('click', function(event){
+    event.stopPropagation()
+})
+
+//close block user
+const closeUserBlock = () => {
+    ELEMENT_BLOCK_USER.style.display = 'none'
+    toggleForm = true
 }
 
 const toggleChangeAvatar = (open) => {
@@ -376,15 +362,18 @@ const toggleChangeAvatar = (open) => {
     }
 }
 
+// click sẽ mở ra thay đổi avatar
 ELEMENT_OPEN_CHANGE_AVATAR.addEventListener('click', function() {
     toggleChangeAvatar(ChangeAvatar)
     ChangeAvatar = !ChangeAvatar
 })
 
+// click vô ảnh sẽ thay đổi ảnh trên avatar
 const changeAvatar = (element) => {
     ELEMENT_AVATAR.src = element.src
 }
 
+// click btn back sẽ quay về trang avatar
 ELEMENT_ICON_BACK.addEventListener('click', function(){
     ELEMENT_CLOSE_LIST_2.style.display = 'block'
     ELEMENT_OPEN_AVATAR.style.display = 'none'
@@ -392,10 +381,13 @@ ELEMENT_ICON_BACK.addEventListener('click', function(){
     ChangeAvatar = true
 })
 
+
+// xác nhận save Avatar
 ELEMENT_BTN_COFIRM_SAVE.addEventListener('click', function(){
     ELEMENT_OVERFLOW_SAVE_AVATAR.style.display = 'block'
 }) 
 
+// tìm User xác nhận save AVATAR
 const findUserAddAvatar = () => {
     getAccountLocalStorage().find((items, n) => {
         if(items.name == ELEMENT_SHOW_NAME_USER.innerText) {
@@ -431,6 +423,7 @@ const saveAvatarNo = () => {
 
 const saveAvatarYes = () => {
     account = getAccountLocalStorage()
+    // tìm user xác nhận save avatar
     findUserAddAvatar()
     console.log(itemUser, index)
     itemUser.avatar = ELEMENT_AVATAR.src
@@ -442,6 +435,7 @@ const saveAvatarYes = () => {
     ELEMENT_AVATAR_COMMENT.src = ELEMENT_AVATAR.src
     ELEMENT_OVERFLOW_SAVE_AVATAR.style.display = 'none'
 }
+
 
 ELEMENT_BTN_LOG_OUT.addEventListener('click', function(){
     ELEMENT_OVERFLOW_LOG_OUT.style.display = 'block'

@@ -1,4 +1,182 @@
+var     loader   = document.querySelector(".preloader");
+window.onload = function(){
+    loader.style.display= 'none';
+    console.log('đã load')
+}
 
+// toggleFormMenu
+const toggleFormMenu = (open) => {
+    if (open) {
+        ELEMENT_HEADER_NAVBAR.classList.add('navbar-active');
+        ELEMENT_HEADER_BTN[1].style.display = 'block';
+        ELEMENT_HEADER_BTN[2].style.display = 'block';
+        ELEMENT_COVER_NAVBAR.style.display  = 'block';
+        ELEMENT_HEADER_MENU.classList.add('hover-menu');
+    } else {
+        ELEMENT_HEADER_NAVBAR.classList.remove('navbar-active');
+        ELEMENT_HEADER_BTN[1].style.display = 'none';
+        ELEMENT_HEADER_BTN[2].style.display = 'none';
+        ELEMENT_COVER_NAVBAR.style.display  = 'none';
+        ELEMENT_HEADER_MENU.classList.remove('hover-menu');
+    }
+    toggleMenu = !toggleMenu;
+}
+
+ELEMENT_HEADER_MENU.addEventListener('click', function() {
+    toggleFormMenu(toggleMenu)
+})
+
+//stop close when click menu
+ELEMENT_COVER_NAVBAR.addEventListener('click', function (){
+    ELEMENT_HEADER_NAVBAR.classList.remove('navbar-active');
+    ELEMENT_HEADER_BTN[1].style.display = 'none';
+    ELEMENT_HEADER_BTN[2].style.display = 'none';
+    ELEMENT_COVER_NAVBAR.style.display = 'none';
+    ELEMENT_HEADER_MENU.classList.remove('hover-menu');
+    toggleMenu = true
+})
+
+ELEMENT_HEADER_NAVBAR.addEventListener('click', function(event) {
+event.stopPropagation()
+})
+
+// toggleDarkMode
+const toggleDarkMode = (open) => {
+    if (open) {
+        ELEMENT_ICON_BULB.style.background  = '#e4e593';
+        ELEMENT_ICON_BULB.style.color       = '#000';
+        document.body.style.background      = '#e4e593';
+        changeColor(ELEMENT_NAME_CAST, '#000')
+    } else {
+        document.body.style.background      = '#242632';
+        ELEMENT_ICON_BULB.style.background  = 'rgb(62 75 99)';
+        ELEMENT_ICON_BULB.style.color       = '#fff';
+        changeColor(ELEMENT_NAME_CAST, '#fff')
+    }
+    darkMode = !darkMode;
+}
+
+function changeColor(el, color) {
+    for (var i = 0; i < el.length; i++) {
+        var currentEl = el[i];
+        currentEl.style.color = color;
+    }
+}
+
+ELEMENT_ICON_BULB.addEventListener('click', function() {
+    toggleDarkMode(darkMode)
+})
+
+// set time out cho 2 thèn slide
+setTimeout(() => {
+    const   prevBtnHeader1                      = document.querySelectorAll('.prev-header1'),
+            nextBtnHeader1                      = document.querySelectorAll('.next-header1'),
+            prevBtnHeader2                      = document.querySelector('#prev-header2'),
+            nextBtnHeader2                      = document.querySelector('#next-header2'),
+            ELEMENT_INTERVAL_HEADER1            = document.getElementById('intervalHeader1'),
+            ELEMENT_INTERVAL_HEADER2            = document.getElementById('intervalHeader2'),
+            ELEMENT_SLIDE_MOVIE_ODD             = document.querySelectorAll(".slide-movie-odd"),
+            ELEMENT_SLIDE_MOVIE_NOMINATION      = document.querySelectorAll(".slide-movie-nomination");
+
+    let     currentHeader1          = 0,
+            currentHeader2          = 0;
+    //// slider header 1
+    nextBtnHeader1[0].addEventListener('click', function() {
+        nextImgHeader1(ELEMENT_SLIDE_MOVIE_NOMINATION)
+    })
+    prevBtnHeader1[0].addEventListener('click', function(){
+        prevImgHeader1(ELEMENT_SLIDE_MOVIE_NOMINATION)
+    })
+
+    function showImgHeader1(n, element) {
+        element.forEach((slide) => {
+            slide.style.transform = "translateX(" + (-n*100) + "%)";
+        });
+    }
+
+    function nextImgHeader1(element) {
+        if (currentHeader1 < element.length - 17) {
+            currentHeader1++;
+        } else {
+            currentHeader1 = 0;
+        }
+        showImgHeader1(currentHeader1, element);
+    }
+
+    function prevImgHeader1(element) {
+        if (currentHeader1 <= 0) {
+            currentHeader1 = element.length - 17;
+        } else {
+            currentHeader1--;
+        }
+        showImgHeader1(currentHeader1, element);
+    }
+
+    let intervalHeader1 = setInterval(() => {
+        nextImgHeader1(ELEMENT_SLIDE_MOVIE_NOMINATION)
+    }, 3000);
+
+    // stop intervalHeader1
+
+    ELEMENT_INTERVAL_HEADER1.addEventListener('mouseenter', function(){
+        clearInterval(intervalHeader1)
+    })
+    ELEMENT_INTERVAL_HEADER1.addEventListener('mouseleave', function(){
+        intervalHeader1 = setInterval(() => {
+            nextImgHeader1(ELEMENT_SLIDE_MOVIE_NOMINATION)
+        }, 3000);
+    })
+
+    ////// slider header 2
+    nextBtnHeader2.addEventListener('click', function() {
+        nextImgHeader2(ELEMENT_SLIDE_MOVIE_ODD)
+    })
+    prevBtnHeader2.addEventListener('click', function(){
+        prevImgHeader2(ELEMENT_SLIDE_MOVIE_ODD)
+    })
+
+    function showImgHeader2(n, element) {
+        element.forEach((slide) => {
+            slide.style.transform = "translateX(" + (-n*100) + "%)";
+        });
+    }
+
+    function nextImgHeader2(element) {
+        if (currentHeader2 < element.length - 5) {
+            currentHeader2++;
+        } else {
+            currentHeader2 = 0;
+        }
+        showImgHeader2(currentHeader2, element);
+    }
+
+    function prevImgHeader2(element) {
+        if (currentHeader2 <= 0) {
+            currentHeader2 = element.length - 5;
+        } else {
+            currentHeader2--;
+        }
+        showImgHeader2(currentHeader2, element);
+    }
+
+    let intervalHeader2 = setInterval(() => {
+        nextImgHeader2(ELEMENT_SLIDE_MOVIE_ODD)
+    }, 3000);
+
+    // stop intervalHeader2
+
+    ELEMENT_INTERVAL_HEADER2.addEventListener('mouseenter', function(){
+        clearInterval(intervalHeader2)
+    })
+    ELEMENT_INTERVAL_HEADER2.addEventListener('mouseleave', function(){
+        intervalHeader2 = setInterval(() => {
+            nextImgHeader2(ELEMENT_SLIDE_MOVIE_ODD)
+        }, 3000);
+    })
+}, 3000);
+// kết thúc set timeout cho mấy thèn slide
+
+// slide main
 
 nextBtn.addEventListener('click', nextImg)
 prevBtn.addEventListener('click', prevImg)
@@ -46,14 +224,12 @@ function dotBtn() {
     })
 }
 
-dotBtn()
-
 setInterval(() => {
     nextImg();
     addActiveDot(current);
 }, 3000);
 
-// slider header 3
+// slider header movie cast
 nextBtnHeader3.addEventListener('click', function() {
     nextImgHeader3(ELEMENT_SLIDE_MOVIE_CAST)
 })
@@ -82,9 +258,6 @@ function prevImgHeader3(element) {
     showImgHeader3(currentHeader3, element);
 }
 
-
-///////////////
-
 // click show page watch movie
 function clickItem(element, n) {
     if ( element == "slide-movie-nomination") {
@@ -108,40 +281,37 @@ function clickItem(element, n) {
         id_movie = "id_topView" + n
         genreHeader = 'Phim nhiều lượt xem'
     }
-
-    // tạo 2 biến này để phân biệt nhóm nào khi lưu vào tệp favourite
-        elItemMovie = element
-        indexItemMovie = n
-        getFavouriteLocalstorage().forEach(item => {
-            if(item.idMovie == id_movie ) {
-                btnFavourite = 'Đã yêu thích'
-                console.log(btnFavourite)
-            } else {
-                btnFavourite = 'Yêu thích'
-                console.log(item.idMovie)
-            }
-        })
-
-        ELEMENT_HOME_PAGE.style.display = "none";
-        ELEMENT_PER_PAGE.style.display = "block";
-        ELEMENT_SHOW_FAVOURITE.style.display = 'none'
-        movieInfo = arrData.find(item => { 
-            return item.id == document.getElementById(id_movie).value
-        })
-
-        //tại vì api content tối đa có 12 thôi lớn hơn thì undefind
-        n > 12 ? n = 2 : false
-        movieInfo ? showPage(movieInfo, arrDataContent[n]) : false
+// tạo 2 biến này để phân biệt nhóm nào khi lưu vào tệp favourite
+    elItemMovie = element
+    indexItemMovie = n
+    ELEMENT_HOME_PAGE.style.display = "none";
+    ELEMENT_PER_PAGE.style.display = "block";
+    ELEMENT_SHOW_FAVOURITE.style.display = 'none'
+    movieInfo = arrData.find(item => { 
+         return item.id == document.getElementById(id_movie).value
+    })
+//tại vì api content tối đa có 12 thôi lớn hơn thì undefind
+    n > 12 ? n = 2 : false
+    movieInfo ? showPage(movieInfo, arrDataContent[n]) : false
 }
 
 // show page watch movie
 const showPage = (item, content) => {
-    console.log(btnFavourite)
+    let  btnFavourite = 'Yêu thích';
+    document.querySelector('.content__favourite').style.background = 'rgb(212, 54, 54)'
+    getFavouriteLocalstorage().forEach(item => {
+        if(item.idMovie == id_movie ) {
+            btnFavourite = 'Bỏ thích'
+            document.querySelector('.content__favourite').style.background = 'green'
+        } 
+    })
+    // check đã dăng nhập user thì mới hiện đã yêu thích
+    ELEMENT_USER.style.display == 'block' ? ELEMENT_BTN_FAVOURITE.innerHTML = btnFavourite : false
+
     ELEMENT_MOVIE.innerHTML = `<iframe id="video" width="100%" height="500px" src="https://www.youtube.com/embed/${item.key}" 
                                     title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;
                                      clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
                                 </iframe>`
-    ELEMENT_BTN_FAVOURITE.innerHTML = btnFavourite
     ELEMENT_ITEM_NAME_1.innerHTML   = item.name
     ELEMENT_ITEM_NAME_2.innerHTML   = item.name
     ELEMENT_HEADER_GENRE.innerHTML  = genreHeader
@@ -158,7 +328,7 @@ const ShowPageFavourite = () => {
     arrFavourite         = getFavouriteLocalstorage()
     for(let n = 0; n <= arrFavourite.length-1 ; n++) {
         let itemF    =  arrFavourite[n]
-        Fxhtml   += ` <a href="#" id="no_data" onclick="clickItem('${itemF.clas}' , ${itemF.n})" class="c-2-5 col l-3 m-6 f-12 slide-nominated-link ${itemF.clas}">
+        Fxhtml   += ` <a href="#" onclick="clickItem('${itemF.clas}' , ${itemF.n})" class="c-2-5 col l-3 m-6 f-12 slide-nominated-link ${itemF.clas}">
                         <div class="slide-nominated-ground">
                             <div class="slide-nominated__cover-img">
                                   <input id="${itemF.idMovie}${itemF.n}" type="text" value="${itemF.id}" hidden>
@@ -169,13 +339,11 @@ const ShowPageFavourite = () => {
                             ${itemF.site}
                             </p>
                             <i class="fa-solid fa-play slide-nominated-play"></i>
-                            <i class="fa-solid fa-heart slide-nominated-favourite"></i>
+                            <i style="  display: block"  class="fa-solid fa-heart slide-nominated-favourite"></i>
                         </div>
                     </a>`
-        console.log(itemF.name)
     }   
     FAVOURITE_RENDER.innerHTML = Fxhtml
-    console.log(arrFavourite)
     ELEMENT_SHOW_FAVOURITE.style.display = 'block'
 }
 
@@ -183,24 +351,50 @@ const ShowPageFavourite = () => {
 const BtnshowFavourite = () => {
     ELEMENT_HOME_PAGE.style.display = "none";
     ELEMENT_PER_PAGE.style.display = "none";
-    console.log('show')
+    ELEMENT_BLOCK_USER.style.display = 'none'
     ShowPageFavourite()
 }
 
 // add item favourite
-const addListFavourite = () => {
-    arrFavourite         = getFavouriteLocalstorage()
-    let elementParentImg = document.getElementById(id_movie).closest('.slide-nominated__cover-img')
-    let srcImg           = elementParentImg.querySelector('img').src
-    movieInfo.src        = srcImg
-    movieInfo.idMovie    = id_movie
-    movieInfo.clas       = elItemMovie
-    movieInfo.n          = indexItemMovie
-    arrFavourite.push(movieInfo)
-    localStorage.setItem('movieFavourite', JSON.stringify(arrFavourite))
+const addListFavourite = (el) => {
+    // laays thenf cha tổng này để xét color cho thèn trái tym
+    let elementParentground = document.getElementById(id_movie).closest('.slide-nominated__cover-img').closest('.slide-nominated-ground')
+    // nếu đang là bỏ thích thì sẽ yêu thích
+    if(ELEMENT_BTN_FAVOURITE.innerHTML == 'Bỏ thích'){
+        ELEMENT_BTN_FAVOURITE.innerHTML = 'Yêu thích'
+        arrFavourite         = getFavouriteLocalstorage()
+        arrFavourite.forEach((item, index) => {
+            if (item.idMovie == id_movie) {
+                arrFavourite.splice(index, 1)
+            }
+        })
+        el.style.background = 'rgb(212, 54, 54)'
+        localStorage.setItem('movieFavourite', JSON.stringify(arrFavourite))
+        elementParentground.querySelector(".slide-nominated-favourite").style.display = 'none'
+        showSuccessDelete()
+        // nếu user avatar đang lock là đã đăng nhập thì có thể nhấn yêu thích
+    } else if(ELEMENT_USER.style.display == 'block'){
+        arrFavourite         = getFavouriteLocalstorage()
+        let elementParentImg = document.getElementById(id_movie).closest('.slide-nominated__cover-img')
+        let srcImg           = elementParentImg.querySelector('img').src
+        movieInfo.src        = srcImg
+        movieInfo.idMovie    = id_movie
+        movieInfo.clas       = elItemMovie
+        movieInfo.n          = indexItemMovie
+        arrFavourite.push(movieInfo)
+        localStorage.setItem('movieFavourite', JSON.stringify(arrFavourite))
+        ELEMENT_BTN_FAVOURITE.innerHTML = 'Bỏ thích'
+        el.style.background = 'green'
+        elementParentground.querySelector(".slide-nominated-favourite").style.display = 'block'
+        //////////////
+        showSuccessToast()
+    } else {
+        // còn lại thì phải đăng nhập mới yêu thích được 
+        showErrorToast()
+    }
 }
 
-//  render item genre
+//  render navbar genre
 const ShowItemGenre = (items, element, clas) =>{
     let xhtml = '';
     let item;
@@ -223,7 +417,7 @@ const ShowItemGenre = (items, element, clas) =>{
 
     for(n; n < number ; n++) {
         item =  items[n]
-        xhtml += ` <a href="#" id="no_data" onclick="clickItem(this)" class="c-2-5 col l-3 m-6 f-12 slide-nominated-link ${clas}">
+        xhtml += ` <a href="#" onclick="clickItem(this)" class="c-2-5 col l-3 m-6 f-12 slide-nominated-link ${clas}">
                         <div class="slide-nominated-ground">
                             <div class="slide-nominated__cover-img">
                                 <img class="img-hover" src="${item.poste}" alt="">
@@ -251,6 +445,13 @@ const getCommentLocalstorage = () => {
     return dataComment
 }
 
+// getLoginLocalstorage
+const getLoginLocalstorage = () => {
+    let dataComment = JSON.parse(localStorage.getItem('login'))
+    dataComment = dataComment ? dataComment : []
+    return dataComment
+}
+
 // getFavouriteLocalstorage
 const getFavouriteLocalstorage = () => {
     let dataFavourite = JSON.parse(localStorage.getItem('movieFavourite'))
@@ -269,7 +470,6 @@ BTN_SUBMIT.addEventListener('click', function(){
         setCommentLocalstorage()
         showComment()
     } else {
-        console.log('méo')
         ELEMENT_ERR_COMMENT.style.display = 'block'
     }
 })
@@ -317,5 +517,76 @@ for (const btn of ELEMENT_BTN_HOME) {
     btn.addEventListener('click',goHome)
 }
 
+// Toast function
+function toast({ title = "", message = "", type = "info", duration = 3000 }) {
+    const main = document.getElementById("toast");
+    if (main) {
+      const toast = document.createElement("div");
+  
+      // Auto remove toast
+      const autoRemoveId = setTimeout(function () {
+        main.removeChild(toast);
+      }, duration + 1000);
+  
+      // Remove toast when clicked
+      toast.onclick = function (e) {
+        if (e.target.closest(".toast__close")) {
+          main.removeChild(toast);
+          clearTimeout(autoRemoveId);
+        }
+      };
+  
+      const icons = {
+        success: "fas fa-check-circle",
+        info: "fas fa-info-circle",
+        warning: "fas fa-exclamation-circle",
+        error: "fas fa-exclamation-circle"
+      };
+      const icon = icons[type];
+      const delay = (duration / 1000).toFixed(2);
+  
+      toast.classList.add("toast", `toast--${type}`);
+      toast.style.animation = `slideInLeft ease .3s, fadeOut linear 1s ${delay}s forwards`;
+  
+      toast.innerHTML = `
+                      <div class="toast__icon">
+                          <i class="${icon}"></i>
+                      </div>
+                      <div class="toast__body">
+                          <h3 class="toast__title">${title}</h3>
+                          <p class="toast__msg">${message}</p>
+                      </div>
+                      <div class="toast__close">
+                          <i class="fas fa-times"></i>
+                      </div>
+                  `;
+      main.appendChild(toast);
+    }
+  }
 
+  function showSuccessToast() {
+    toast({
+      title: "Thành công!",
+      message: "Đã thêm vào danh sách yêu thích thành công.",
+      type: "success",
+      duration: 5000
+    });
+  }
 
+  function showErrorToast() {
+    toast({
+      title: "Thất bại!",
+      message: "Vui lòng đăng nhập tài khoản FMovie.",
+      type: "error",
+      duration: 5000
+    });
+  }
+
+  function showSuccessDelete() {
+    toast({
+      title: "Thành công!",
+      message: "Đã xóa khỏi danh sách Yêu thích thành công",
+      type: "error",
+      duration: 5000
+    });
+  }

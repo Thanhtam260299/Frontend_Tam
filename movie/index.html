@@ -13,8 +13,12 @@
     <link rel="stylesheet" href="../movie/css/home/base.css">
     <link rel="stylesheet" href="../movie/css/home/style.css">
     <link rel="stylesheet" href="../movie/css/home/reponsive.css">
+    <!-- toast messages -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
 </head>
 <body onclick="closeUserBlock()">
+    
+    <div class="preloader"></div>   
     <div class="header">
         <div class="header__search">
             <header class="header__cover--search grid">
@@ -47,14 +51,14 @@
                         <i class="fa-solid fa-bars"></i>
                     </li>
                     <li class="header__icon--user">
-                        <img src="https://scontent.fsgn5-10.fna.fbcdn.net/v/t39.30808-6/299624937_3381255322105621_2510058687588518433_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=joA4hBIFY9gAX8RjUbx&_nc_ht=scontent.fsgn5-10.fna&oh=00_AT9zqeT4BOlH0PpWQgo8OPiIXmUePrqVqcDWfxzJrVvbpQ&oe=632249EF" alt="">
+                        <img src="https://thao68.com/wp-content/uploads/2022/03/avatar-facebook-20.jpg" alt="">
                         <div class="header__item-user">
                             <div class="header__background-user">
                                 <i class="fa-solid fa-arrow-left-long"></i>
                             </div>
                             <div class="header__main-user">
                                 <div class="cover-img">
-                                    <img src="https://scontent.fsgn5-10.fna.fbcdn.net/v/t39.30808-6/299624937_3381255322105621_2510058687588518433_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=joA4hBIFY9gAX8RjUbx&_nc_ht=scontent.fsgn5-10.fna&oh=00_AT9zqeT4BOlH0PpWQgo8OPiIXmUePrqVqcDWfxzJrVvbpQ&oe=632249EF" alt="">
+                                    <img src="https://thao68.com/wp-content/uploads/2022/03/avatar-facebook-20.jpg" alt="">
                                     <i class="fa-solid fa-arrows-rotate"></i>
                                 </div>
                                 <header class="header__item-name-user">Phạm Thanh Tâm</header>
@@ -492,7 +496,7 @@
             <div class="app__body">
                 <div id="source-movie" class="body__movie">
                     <video width="100%" height="540px" controls poster="https://i.pinimg.com/originals/c4/0b/56/c40b56446ae6f221e20ea4dfb708db21.jpg">
-                        <source src="../movie/video/SPIDER-MAN- NO WAY HOME - Official Trailer.mp4" type="video/mp4">
+                       
                     </video>
                 </div>
                 <div class="body__content">
@@ -512,12 +516,12 @@
                                 <i class="fa-solid fa-share"></i>
                                 Share
                             </a>
-                            <a href="#" onclick="addListFavourite()" class="content__icon-common content__favourite">
+                            <p onclick="addListFavourite(this)" class="content__icon-common content__favourite">
                                 <span class="btn-favourite">
                                     Yêu thích
                                 </span>
                                 <i class="fa-solid fa-heart"></i>
-                            </a>
+                            </p>
                         </div>
                         <div class="content__rating">
                             <i class="fa-solid fa-star icon__rating"></i>
@@ -540,7 +544,7 @@
                             Nội dung phim Bà Chủ 2
                         </h4>
                         <p class="movie__content">
-                            Bà Chủ 2 Queen of Triads 2 2022 Full HD Vietsub Thuyết Minh Bối cảnh của bộ phim tập trung vào Hồng Kông những năm 1970. Phim kể về câu chuyện của White Rose (do Xu Dongdong thủ vai), một công lý của Ủy ban độc lập chống tham nhũng, người được lệnh phải lẻn đến tay trùm xã hội đen Lei Wan Wan (do Xie Tianhua) để thu thập bằn
+                            
                         </p>
                     </div>
                     <div class="content__info">
@@ -595,7 +599,7 @@
                         </h4>
                         <div class="comment__input">
                             <div class="avatar">
-                                <img src="https://scontent.fsgn5-10.fna.fbcdn.net/v/t39.30808-6/299624937_3381255322105621_2510058687588518433_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=joA4hBIFY9gAX8RjUbx&_nc_ht=scontent.fsgn5-10.fna&oh=00_AT9zqeT4BOlH0PpWQgo8OPiIXmUePrqVqcDWfxzJrVvbpQ&oe=632249EF" alt="">
+                                <img src="https://thao68.com/wp-content/uploads/2022/03/avatar-facebook-20.jpg" alt="">
                             </div>
                             <div class="cover__input">
                                 <input type="text" oninput="inputComment()" class="input" placeholder="Viết bình luận...">
@@ -660,7 +664,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="col c-2 m-0">
+                <div class="col c-2 m-4">
                     <div class="footer__group">
                         <ul>
                             <li>
@@ -684,7 +688,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col c-2 m-0">
+                <div class="col c-2 m-4">
                     <div class="footer__group">
                         <ul>
                             <li>
@@ -705,7 +709,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col c-2 m-0">
+                <div class="col c-2 m-4">
                     <div class="footer__group">
                         <ul>
                             <li>
@@ -799,13 +803,13 @@
         
             <div class="form-group ">
             <label for="fullname" class="form-label">Tên đăng nhập</label>
-            <input id="fullname" name="fullname" oninput="resetSTT()" type="text" placeholder="Tên đăng nhập" class="form-control">
+            <input id="fullname1" name="fullname" oninput="resetSTT()" type="text" placeholder="Tên đăng nhập" class="form-control">
             <span class="form-message"></span>
             </div>
         
             <div class="form-group">
             <label for="password" class="form-label">Mật khẩu</label>
-            <input id="password" name="password" oninput="resetSTT()" type="password" placeholder="Nhập mật khẩu" class="form-control">
+            <input id="password1" name="password" oninput="resetSTT()" type="password" placeholder="Nhập mật khẩu" class="form-control">
             <span class="form-message"></span>
             </div>
 
@@ -825,6 +829,9 @@
             </p>
         </form>
     </div>
+    <!-- toast messages -->
+    <div id="toast"></div>
+
 
 <!-- validator -->
 <script src="../movie/js/validator.js/validator.js"></script>
@@ -832,9 +839,6 @@
 <script src="../movie/js/homePage/const.js"></script>
 <script src="../movie/js/homePage/model.js"></script>
 <script src="../movie/js/homePage/view.js"></script>
-<!-- COMMON -->
-    <script src="../movie/js/common.js/const.js"></script>
-    <script src="../movie/js/common.js/model.js"></script>
 
 </body>
 </html>

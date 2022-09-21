@@ -1,3 +1,13 @@
+const   ELEMENT_HEADER_NAVBAR               = document.querySelector(".header__navbar-cover"),
+        ELEMENT_HEADER_MENU                 = document.querySelector(".header__icon--menu"),
+        ELEMENT_HEADER_BTN                  = document.querySelectorAll(".header__icon"),
+        ELEMENT_COVER_NAVBAR                = document.querySelector(".header__navbar"),
+        ELEMENT_NAME_CAST                   = document.querySelectorAll(".slide-nominated-name-cast"),
+        ELEMENT_ICON_BULB                   = document.querySelector(".header__icon--bulb");
+
+let     darkMode                = true,
+        toggleMenu              = true;
+
 let     ELEMENT_SLIDE_SHOW                  = document.querySelectorAll(".home__slide-item"),
         ELEMENT_SLIDE_MOVIE_CAST            = document.querySelectorAll(".slide-movie-cast"),
         prevBtn                             = document.querySelector('#prev'),
@@ -28,7 +38,7 @@ let     ELEMENT_ITEM_NAME_1                 = document.getElementById('nav-bar__
         ELEMENT_MOVIE_CONTENT               = document.querySelector('.movie__content'),
         ELEMENT_MOVIE                       = document.getElementById('source-movie'),
         ELEMENT_BTN_HOME                    = document.querySelectorAll('.btn-home'),
-        ELEMENT_BTN_FAVOURITE               = document.querySelectorAll('.btn-favourite'),
+        ELEMENT_BTN_FAVOURITE               = document.querySelector('.btn-favourite'),
         children1,
         childrenName;  
         
@@ -46,8 +56,7 @@ let     numberSlide             = 0,
 
 let     elItemMovie,
         indexItemMovie,
-        genreHeader,
-        btnFavourite;
+        genreHeader;
 
 let     ICON_RATING                         = document.querySelectorAll('.icon__rating'),
         video                               = document.getElementById("video");
@@ -96,9 +105,6 @@ const renderData    = async (x, url, clas) => {
         numImg,
         numBlock,
         id_movie ;
-
-    let     ELEMENT_SLIDE_MOVIE_ODD             = document.querySelectorAll(".slide-movie-odd"),
-            ELEMENT_SLIDE_MOVIE_NOMINATION      = document.querySelectorAll(".slide-movie-nomination");
     
     // fet api data show home page
     try {
@@ -150,8 +156,17 @@ const renderData    = async (x, url, clas) => {
     } 
 
     for(let n = 0; n < arrData.length - numBlock ; n++) {
-        item    =  arrData[n]
-        xhtml   += ` <a href="#" id="no_data" onclick="clickItem('${clas}' , ${n})" class="c-2-5 col l-3 m-6 f-12 slide-nominated-link ${clas}">
+        let checkFavourite = 'none'
+        item =  arrData[n]
+        if(getDataSaveAccount().user || getLoginLocalstorage().user) {
+            console.log(Boolean(getFavouriteLocalstorage()[0]))
+            if(getFavouriteLocalstorage()[0]) {
+                for(let a = 0; a < getFavouriteLocalstorage().length; a++) {
+                    getFavouriteLocalstorage()[a].id == item.id ? checkFavourite = 'block' : false
+                }
+            }
+        }
+        xhtml   += ` <a href="#" onclick="clickItem('${clas}' , ${n})" class="c-2-5 col l-3 m-6 f-12 slide-nominated-link ${clas}">
                         <div class="slide-nominated-ground">
                             <div class="slide-nominated__cover-img">
                                   <input id="${id_movie}${n}" type="text" value="${item.id}" hidden>
@@ -162,43 +177,12 @@ const renderData    = async (x, url, clas) => {
                             ${item.site}
                             </p>
                             <i class="fa-solid fa-play slide-nominated-play"></i>
-                            <i class="fa-solid fa-heart slide-nominated-favourite"></i>
+                            <i style="  display:${checkFavourite}" class="fa-solid fa-heart slide-nominated-favourite"></i>
                         </div>
                     </a>`
                     numImg++;
     }   
-    x.innerHTML = xhtml
-
-    function showImgHeader1(n, element) {
-        element.forEach((slide) => {
-            slide.style.transform = "translateX(" + (-n*100) + "%)";
-        });
-    }
-    
-    function nextImgHeader1(element) {
-        if (currentHeader1 < element.length - 17) {
-            currentHeader1++;
-        } else {
-            currentHeader1 = 0;
-        }
-        showImgHeader1(currentHeader1, element);
-    }
-              
-    if (clas == "slide-movie-odd") {
-        let intervalHeader1 = setInterval(() => {
-            nextImgHeader1(ELEMENT_SLIDE_MOVIE_NOMINATION)
-        }, 3000);
-        let intervalHeader2 = setInterval(() => {
-            nextImgHeader2(ELEMENT_SLIDE_MOVIE_ODD)
-        }, 3000);
-    }
-    nextBtnHeader1[0].addEventListener('click', function() {
-        nextImgHeader1(ELEMENT_SLIDE_MOVIE_NOMINATION)
-    })
-    prevBtnHeader1[0].addEventListener('click', function(){
-        console.log('prev')
-        prevImgHeader1(ELEMENT_SLIDE_MOVIE_NOMINATION)
-    })   
+    x.innerHTML = xhtml  
 } 
 
 const renderDataTopView    = async (x, url, clas) => {
@@ -208,7 +192,6 @@ const renderDataTopView    = async (x, url, clas) => {
         xhtml = '',
         item,
         numImg = 0,
-        numBlock,
         id_movie;
 
     // fet api data show TopView
@@ -242,7 +225,15 @@ const renderDataTopView    = async (x, url, clas) => {
     id_movie = 'id_topView'
         
     for(let n = 0; n < arrData.length - 2 ; n++) {
+        let checkFavourite = 'none'
         item =  arrData[n]
+        if(getDataSaveAccount().user || getLoginLocalstorage().user) {
+            if(getFavouriteLocalstorage()[0]) {
+                for(let a = 0; a < getFavouriteLocalstorage().length; a++) {
+                    getFavouriteLocalstorage()[a].id == item.id ? checkFavourite = 'block' : false
+                }
+            }
+        }
         xhtml += ` <li class="top-view__item ${clas}" onclick="clickItem('${clas}' , ${n})">
                         <a href="#"class="top-view__item-link">
                             <div class="top-view__item-img slide-nominated__cover-img">
@@ -273,7 +264,7 @@ const renderDataTopView    = async (x, url, clas) => {
                                 <span class="list-items-since">
                                 ${item.published_at}
                                 </span>
-                                <i class="fa-solid fa-heart slide-nominated-favourite"></i>
+                                <i style="  display:${checkFavourite}" class="fa-solid fa-heart slide-nominated-favourite"></i>
                             </div>
                         </a>
                     </li>`
