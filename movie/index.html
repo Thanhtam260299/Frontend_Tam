@@ -17,17 +17,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
 </head>
 <body onclick="closeUserBlock()">
-    
     <div class="preloader"></div>   
+
     <div class="header">
         <div class="header__search">
             <header class="header__cover--search grid">
                 <header class="header__logo">
-                    <a href="#" class="header__logo-link">
+                    <a href="#" class="header__logo-link btn-home">
                             <img src="https://s1.bunnycdn.ru/assets/sites/fmovies/logo2.png" alt="" class="img-logo">
                     </a>
                     <form action="" class="form-search">
-                        <input id="input__form-search" type="text" placeholder="Nhập tên phim, diễn viên...">
+                        <input oninput="checkData()" id="input__form-search" type="text" placeholder="Nhập tên phim, diễn viên...">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </form>
                 </header>
@@ -61,7 +61,7 @@
                                     <img src="https://thao68.com/wp-content/uploads/2022/03/avatar-facebook-20.jpg" alt="">
                                     <i class="fa-solid fa-arrows-rotate"></i>
                                 </div>
-                                <header class="header__item-name-user">Phạm Thanh Tâm</header>
+                                <header class="header__item-name-user">No Name</header>
                                 <ul class="header__user-list1">
                                     <li class="header__user-item">
                                         <a href="#"><i class="fa-solid fa-key"></i></a>
@@ -175,7 +175,7 @@
                                 <i class="fa-solid fa-house-chimney"></i>
                             </a>
                         </li>
-                        <li class="header__navbar-item navbar__select-new-film">
+                        <li class="header__navbar-item navbar__select-new-film" onclick="changePage(this)">
                             <a href="#" class="navbar__select-movie">
                                 new movie
                             </a>
@@ -197,30 +197,33 @@
                                 
                             </ul>
                         </li>
-                        <li class="header__navbar-item navbar__select-odd-movie">
+                        <li class="header__navbar-item navbar__select-odd-movie" onclick="changePage(this)">
                             <a href="#" class="navbar__select-movie">
                                 odd movie
                             </a>
                         </li>
-                        <li class="header__navbar-item navbar__select-series-movie">
+                        <li class="header__navbar-item navbar__select-series-movie" onclick="changePage(this)">
                             <a href="#" class="navbar__select-movie">
                                 series
                             </a>
                         </li>
-                        <li class="header__navbar-item navbar__select-movie-theaters">
+                        <li class="header__navbar-item navbar__select-movie-theaters" onclick="changePage(this)">
                             <a href="#" class="navbar__select-movie">
                                 trailer
                             </a>
                         </li>
-                        <li class="header__navbar-item navbar__select-anime">
+                        <li class="header__navbar-item navbar__select-anime" onclick="changePage(this)">
                             <a href="#" class="navbar__select-movie">
                                 anime
                             </a>
                         </li>
                         <li class="header__navbar-item navbar__select-trailer">
-                            <a href="#" class="navbar__select-movie">
-                                top rating
+                            <a href="#" class="navbar__select-movie ">
+                                recently
+                                <i class="fa-solid fa-sort-down navbar-icon--down"></i>
                             </a>
+                            <div class="menu-items--watched">
+                            </div>
                         </li>
                     </ul>
             </div>
@@ -264,9 +267,10 @@
                 </div>    
             </div>
         </div>
+
         <div class="header__slide-bar">
             <h2 class="header__slide-nominated-movie">
-                PHIM ĐỀ CỬ
+                MOST WATCHED MOVIES
             </h2>
             <div class="div">    
                 <span class="prev prev-header prev-header1"><i class="fas fa-angle-left"></i></span>
@@ -275,32 +279,34 @@
         </div>
         <div id="intervalHeader1" class="slide-nominated-movie row row-no-wrap genre-render">
         </div>
+
         <div class="header__slide-bar margin-top-header">
             <h2 class="header__slide-nominated-movie">
-                PHIM LẺ MỚI CẬP NHẬT
+                NEW MOVIE ODD
             </h2>
             <div class="div">    
                 <span id="prev-header2" class="prev prev-header"><i class="fas fa-angle-left"></i></span>
                 <span id="next-header2" class="next next-header"><i class="fas fa-angle-right"></i></span>
             </div>
         </div>
-        <div id="intervalHeader2" class="slide-nominated-movie row row-no-wrap odd-render">
-            
+        <div id="intervalHeader2" class="slide-nominated-movie row row-no-wrap odd-render">       
         </div>
+
         <h2 class="header__slide-nominated-movie ">
-            PHIM BỘ MỚI CẬP NHẬT
+            NEW MOVIE SERIE
         </h2>
         <div class="slide-nominated-movie row row-no-wrap list-series-movie">
-        </div>   
+        </div>  
+         
         <h2 class="header__slide-nominated-movie header__slide--height-small">
-            PHIM SẮP CHIẾU
+            MOVIE COMING
         </h2> 
         <div class="slide-nominated-movie row  movie-coming">
         </div>
         
         <div class="header__slide-bar header__slide--height-small">
             <h2 class="header__slide-nominated-movie">
-                DIỄN VIÊN NỔI BẬT
+                HOT CAST
             </h2> 
             <div class="div">    
                 <span id="prev-header3" class="prev prev-header"><i class="fas fa-angle-left"></i></span>
@@ -641,6 +647,13 @@
         <div class="slide-nominated-movie row favourite">
         </div>
     </div>
+    <!--CHANGE PAGE -->
+    <div class="change-page-grounp grid">
+        <div class="change-page-header">
+        </div>
+        <div class="change-page row">
+        </div>
+    </div>
     <!--FOOTER-->
     <div class="footer">
         <footer class="grid">
@@ -831,7 +844,6 @@
     </div>
     <!-- toast messages -->
     <div id="toast"></div>
-
 
 <!-- validator -->
 <script src="../movie/js/validator.js/validator.js"></script>

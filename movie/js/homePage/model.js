@@ -1,7 +1,6 @@
-var     loader   = document.querySelector(".preloader");
+// load
 window.onload = function(){
     loader.style.display= 'none';
-    console.log('đã load')
 }
 
 // toggleFormMenu
@@ -56,6 +55,7 @@ const toggleDarkMode = (open) => {
     darkMode = !darkMode;
 }
 
+// changeColor cho dark mode
 function changeColor(el, color) {
     for (var i = 0; i < el.length; i++) {
         var currentEl = el[i];
@@ -63,6 +63,7 @@ function changeColor(el, color) {
     }
 }
 
+//
 ELEMENT_ICON_BULB.addEventListener('click', function() {
     toggleDarkMode(darkMode)
 })
@@ -75,8 +76,8 @@ setTimeout(() => {
             nextBtnHeader2                      = document.querySelector('#next-header2'),
             ELEMENT_INTERVAL_HEADER1            = document.getElementById('intervalHeader1'),
             ELEMENT_INTERVAL_HEADER2            = document.getElementById('intervalHeader2'),
-            ELEMENT_SLIDE_MOVIE_ODD             = document.querySelectorAll(".slide-movie-odd"),
-            ELEMENT_SLIDE_MOVIE_NOMINATION      = document.querySelectorAll(".slide-movie-nomination");
+            ELEMENT_SLIDE_MOVIE_ODD             = document.querySelectorAll(".odd-render .slide-movie-odd"),
+            ELEMENT_SLIDE_MOVIE_NOMINATION      = document.querySelectorAll(".genre-render .slide-movie-nomination");
 
     let     currentHeader1          = 0,
             currentHeader2          = 0;
@@ -177,7 +178,6 @@ setTimeout(() => {
 // kết thúc set timeout cho mấy thèn slide
 
 // slide main
-
 nextBtn.addEventListener('click', nextImg)
 prevBtn.addEventListener('click', prevImg)
 
@@ -228,6 +228,7 @@ setInterval(() => {
     nextImg();
     addActiveDot(current);
 }, 3000);
+// end slide main
 
 // slider header movie cast
 nextBtnHeader3.addEventListener('click', function() {
@@ -257,6 +258,7 @@ function prevImgHeader3(element) {
     }
     showImgHeader3(currentHeader3, element);
 }
+// end slide cast
 
 // click show page watch movie
 function clickItem(element, n) {
@@ -284,6 +286,7 @@ function clickItem(element, n) {
 // tạo 2 biến này để phân biệt nhóm nào khi lưu vào tệp favourite
     elItemMovie = element
     indexItemMovie = n
+    OPEN_CHANGE_PAGE.style.display = "none";
     ELEMENT_HOME_PAGE.style.display = "none";
     ELEMENT_PER_PAGE.style.display = "block";
     ELEMENT_SHOW_FAVOURITE.style.display = 'none'
@@ -293,18 +296,32 @@ function clickItem(element, n) {
 //tại vì api content tối đa có 12 thôi lớn hơn thì undefind
     n > 12 ? n = 2 : false
     movieInfo ? showPage(movieInfo, arrDataContent[n]) : false
+// add item watched
+    arrWatched = getWatchedLocalstorage()
+    if (!arrWatched.some(item => item.idMovie == id_movie )) {
+        let elementParentImg = document.getElementById(id_movie).closest('.slide-nominated__cover-img')
+        let srcImg           = elementParentImg.querySelector('img').src
+        movieInfo.src        = srcImg
+        movieInfo.idMovie    = id_movie
+        movieInfo.clas       = elItemMovie
+        movieInfo.n          = indexItemMovie
+        arrWatched.unshift(movieInfo)
+        localStorage.setItem('watched', JSON.stringify(arrWatched))
+        ShowPageFavourite(arrWatched, ELEMENT_WATCHED, "none")
+    }
 }
 
 // show page watch movie
 const showPage = (item, content) => {
     let  btnFavourite = 'Yêu thích';
     document.querySelector('.content__favourite').style.background = 'rgb(212, 54, 54)'
-    getFavouriteLocalstorage().forEach(item => {
+    getarrFavouriteLocalstorage().forEach(item => {
         if(item.idMovie == id_movie ) {
             btnFavourite = 'Bỏ thích'
             document.querySelector('.content__favourite').style.background = 'green'
         } 
     })
+    
     // check đã dăng nhập user thì mới hiện đã yêu thích
     ELEMENT_USER.style.display == 'block' ? ELEMENT_BTN_FAVOURITE.innerHTML = btnFavourite : false
 
@@ -323,11 +340,10 @@ const showPage = (item, content) => {
 } 
 
 //showPageFavourite
-const ShowPageFavourite = () => {
+const ShowPageFavourite = (arr, ele, display) => {
     let Fxhtml = ''
-    arrFavourite         = getFavouriteLocalstorage()
-    for(let n = 0; n <= arrFavourite.length-1 ; n++) {
-        let itemF    =  arrFavourite[n]
+    for(let n = 0; n <= arr.length-1 ; n++) {
+        let itemF    =  arr[n]
         Fxhtml   += ` <a href="#" onclick="clickItem('${itemF.clas}' , ${itemF.n})" class="c-2-5 col l-3 m-6 f-12 slide-nominated-link ${itemF.clas}">
                         <div class="slide-nominated-ground">
                             <div class="slide-nominated__cover-img">
@@ -339,12 +355,11 @@ const ShowPageFavourite = () => {
                             ${itemF.site}
                             </p>
                             <i class="fa-solid fa-play slide-nominated-play"></i>
-                            <i style="  display: block"  class="fa-solid fa-heart slide-nominated-favourite"></i>
+                            <i style="  display: ${display}"  class="fa-solid fa-heart slide-nominated-favourite"></i>
                         </div>
                     </a>`
     }   
-    FAVOURITE_RENDER.innerHTML = Fxhtml
-    ELEMENT_SHOW_FAVOURITE.style.display = 'block'
+    ele.innerHTML = Fxhtml
 }
 
 // click show page favourite
@@ -352,7 +367,9 @@ const BtnshowFavourite = () => {
     ELEMENT_HOME_PAGE.style.display = "none";
     ELEMENT_PER_PAGE.style.display = "none";
     ELEMENT_BLOCK_USER.style.display = 'none'
-    ShowPageFavourite()
+    OPEN_CHANGE_PAGE.style.display = 'none'
+    ELEMENT_SHOW_FAVOURITE.style.display = 'block'
+    ShowPageFavourite(getarrFavouriteLocalstorage(), FAVOURITE_RENDER, "block")
 }
 
 // add item favourite
@@ -362,7 +379,7 @@ const addListFavourite = (el) => {
     // nếu đang là bỏ thích thì sẽ yêu thích
     if(ELEMENT_BTN_FAVOURITE.innerHTML == 'Bỏ thích'){
         ELEMENT_BTN_FAVOURITE.innerHTML = 'Yêu thích'
-        arrFavourite         = getFavouriteLocalstorage()
+        arrFavourite         = getarrFavouriteLocalstorage()
         arrFavourite.forEach((item, index) => {
             if (item.idMovie == id_movie) {
                 arrFavourite.splice(index, 1)
@@ -374,7 +391,7 @@ const addListFavourite = (el) => {
         showSuccessDelete()
         // nếu user avatar đang lock là đã đăng nhập thì có thể nhấn yêu thích
     } else if(ELEMENT_USER.style.display == 'block'){
-        arrFavourite         = getFavouriteLocalstorage()
+        arrFavourite         = getarrFavouriteLocalstorage()
         let elementParentImg = document.getElementById(id_movie).closest('.slide-nominated__cover-img')
         let srcImg           = elementParentImg.querySelector('img').src
         movieInfo.src        = srcImg
@@ -452,9 +469,16 @@ const getLoginLocalstorage = () => {
     return dataComment
 }
 
-// getFavouriteLocalstorage
-const getFavouriteLocalstorage = () => {
+// getarrFavouriteLocalstorage
+const getarrFavouriteLocalstorage = () => {
     let dataFavourite = JSON.parse(localStorage.getItem('movieFavourite'))
+    dataFavourite = dataFavourite ? dataFavourite : []
+    return dataFavourite
+}
+
+// getarrFavouriteLocalstorage
+const getWatchedLocalstorage = () => {
+    let dataFavourite = JSON.parse(localStorage.getItem('watched'))
     dataFavourite = dataFavourite ? dataFavourite : []
     return dataFavourite
 }
@@ -505,11 +529,21 @@ const showComment = () => {
     LIST_COMMENT.innerHTML = ahtml
 }
 
+
 // go home
 const goHome = () => {
+    if ( ELEMENT_HOME_PAGE.style.display == "none"){
+
+    }
     ELEMENT_HOME_PAGE.style.display = "block";
     ELEMENT_PER_PAGE.style.display = "none";
-    ELEMENT_SHOW_FAVOURITE.style.display = 'none'
+    ELEMENT_SHOW_FAVOURITE.style.display = 'none';
+    OPEN_CHANGE_PAGE.style.display = "none";
+    // gỡ active của mấy thèn trên navbar
+    for (const item of ELEMENT_LIST_ITEMS_NAVBAR) {
+        item.classList.remove("active-change-page")
+    }
+    ELEMENT_HOME_ACTIVE.classList.add("active-change-page")
 }
 
 // btn show page home
@@ -590,3 +624,167 @@ function toast({ title = "", message = "", type = "info", duration = 3000 }) {
       duration: 5000
     });
   }
+
+const changePage = (option) => {
+    ELEMENT_HOME_PAGE.style.display = "none";
+    ELEMENT_SHOW_FAVOURITE.style.display = 'none'
+    OPEN_CHANGE_PAGE.style.display = "block";
+    ELEMENT_PER_PAGE.style.display = "none";
+    for (const item of ELEMENT_LIST_ITEMS_NAVBAR) {
+            item.classList.remove("active-change-page")
+    }
+    option.classList.add("active-change-page")
+    let headerText = option.querySelector("a").innerText
+    CHANGE_PAGE_HEADER.innerHTML = headerText
+    if(headerText == "NEW MOVIE") {
+        headerText = "series-movie"
+    } else if(headerText == "ODD MOVIE") {
+        headerText = "slide-movie-nomination"
+    } else if(headerText == "SERIES") {
+        headerText = "slide-movie-odd"
+    } else if(headerText == "TRAILER") {
+        headerText = ""
+    } else if(headerText == "ANIME") {
+        headerText = ""
+    }
+    showPageChange(CHANGE_PAGE, headerText)
+}
+
+const showPageChange    =  (x, clas) => {
+    let xhtml = '',
+        item,
+        numImg,
+        numBlock,
+        id_movie ;
+    
+    
+    if ( clas == "slide-movie-nomination") {
+        numImg = 0
+        numBlock = 0
+        arrData = dataMovieGenre
+        id_movie = 'id_genre'
+    } else if (clas == "slide-movie-odd") {
+        numImg = 9
+        numBlock = 0
+        arrData = dataMovieOrr
+        id_movie = 'id_orr'
+    } else if (clas == "series-movie") {
+        numImg = 0
+        numBlock = 0
+        arrData = dataMovieSerie
+        id_movie = 'id_serie'
+    } else if (clas == ""){
+        numImg = 11
+        numBlock = 0
+        arrData = dataMovieComing
+        id_movie = 'id_coming'
+    } 
+
+    for(let n = 0; n < arrData.length - numBlock ; n++) {
+        let checkFavourite = 'none'
+        item =  arrData[n]
+        if(getDataSaveAccount().user || getLoginLocalstorage().user) {
+            if(getarrFavouriteLocalstorage()[0]) {
+                for(let a = 0; a < getarrFavouriteLocalstorage().length; a++) {
+                    getarrFavouriteLocalstorage()[a].id == item.id ? checkFavourite = 'block' : false
+                }
+            }
+        }
+        xhtml   += ` <a href="#" onclick="clickItem('${clas}' , ${n})" class="c-2-5 col l-3 m-6 f-12 slide-nominated-link ${clas}">
+                        <div class="slide-nominated-ground">
+                            <div class="slide-nominated__cover-img">
+                                  <input id="${id_movie}${n}" type="text" value="${item.id}" hidden>
+                                  <img class="img-hover" src="https://image.tmdb.org/t/p/original${arrDataImg[numImg].file_path}" alt="">
+                            </div>
+                            <p class="slide-nominated-name">${item.name}</p>
+                            <p class="slide-nominated-sub">
+                            ${item.site}
+                            </p>
+                            <i class="fa-solid fa-play slide-nominated-play"></i>
+                            <i style="  display:${checkFavourite}" class="fa-solid fa-heart slide-nominated-favourite"></i>
+                        </div>
+                    </a>`
+                    numImg++;
+    }   
+    x.innerHTML = xhtml  
+} 
+
+// search
+function autocomplete(inp, arr) {
+    var currentFocus;
+    inp.addEventListener("input", function(e) {
+        var a, b, i, val = this.value;
+        closeAllLists();
+        if (!val) { return false;}
+        currentFocus = -1;
+        a = document.createElement("DIV");
+        a.setAttribute("id", this.id + "autocomplete-list");
+        a.setAttribute("class", "autocomplete-items");
+        this.parentNode.appendChild(a);
+        for (i = 0; i < arr.length; i++) {
+          if (arr[i].name.substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+            b = document.createElement("DIV");
+            b.innerHTML = "<strong>" + arr[i].name.substr(0, val.length) + "</strong>";
+            b.innerHTML += arr[i].name.substr(val.length);
+            b.innerHTML += "<input type='hidden' name = " + i +" value='" + arr[i].name.replace(
+                /&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(
+                    /"/g, "&quot;").replace(/'/g, "&#039;") + "'>";
+            b.addEventListener("click", function(e) {
+                inp.value = this.getElementsByTagName("input")[0].value;
+                inp.name = this.getElementsByTagName("input")[0].name;
+                closeAllLists();
+            });
+            a.appendChild(b);
+          }
+        }
+    });
+    inp.addEventListener("keydown", function(e) {
+        var x = document.getElementById(this.id + "autocomplete-list");
+        if (x) x = x.getElementsByTagName("div");
+        if (e.keyCode == 40) {
+          currentFocus++;
+          addActive(x);
+        } else if (e.keyCode == 38) { 
+          currentFocus--;
+          addActive(x);
+        } else if (e.keyCode == 13) {
+          e.preventDefault();
+          if (currentFocus > -1) {
+            if (x) x[currentFocus].click();
+          }
+        }
+    });
+    function addActive(x) {
+      if (!x) return false;
+      removeActive(x);
+      if (currentFocus >= x.length) currentFocus = 0;
+      if (currentFocus < 0) currentFocus = (x.length - 1);
+      x[currentFocus].classList.add("autocomplete-active");
+    }
+    function removeActive(x) {
+      for (var i = 0; i < x.length; i++) {
+        x[i].classList.remove("autocomplete-active");
+      }
+    }
+    function closeAllLists(elmnt) {
+      var x = document.getElementsByClassName("autocomplete-items");
+      for (var i = 0; i < x.length; i++) {
+        if (elmnt != x[i] && elmnt != inp) {
+          x[i].parentNode.removeChild(x[i]);
+        }
+      }
+    }
+    document.addEventListener("click", function (e) {
+        closeAllLists(e.target);
+    });
+}
+
+const checkData = () => {
+     arrTotal  = [...dataMovieComing, ...dataMovieGenre, ...dataMovieOrr, ...dataMovieSerie, ...dataTopView];
+    autocomplete(document.getElementById("input__form-search"), arrTotal);            
+}
+
+ELEMENT_BTN_SEARCH.addEventListener('click', function() {
+    if(document.getElementById("input__form-search").name){
+    }
+})

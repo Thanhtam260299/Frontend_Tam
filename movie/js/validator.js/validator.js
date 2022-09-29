@@ -250,12 +250,6 @@ const getDataSaveAccount = () => {
     return dataArray
 }
 
-// check box
-const changeBox = (oncheck) => {
-    if(oncheck.checked) {
-        checkBox = true;
-    }
-}
 
 // sign up
 const btnSubmitSignUp = () => {
@@ -282,6 +276,14 @@ const btnSubmitSignUp = () => {
     }
 }
 
+
+// check box
+const changeBox = (oncheck) => {
+    if(oncheck.checked) {
+        checkBox = true;
+    }
+}
+
 // sign in  
 const btnSubmitSignIn = () => {
     account = getAccountLocalStorage()
@@ -291,6 +293,7 @@ const btnSubmitSignIn = () => {
 
     if(checkName) {
         var checkPass = checkName.password ==  ELEMENT_PASSWORD_INPUT.value
+        console.log('ok')
         if (checkPass) {
             if(checkBox) {
                 // nếu có lưu mật khẩu thì chạy vô đây
@@ -302,21 +305,25 @@ const btnSubmitSignIn = () => {
                     localStorage.setItem('saveAccount', JSON.stringify({user :checkName.name , pass : checkName.password }));
                 }
             } else {
-                // reset lại local
+                // không lưu mật khẩu thì chạy vô đây
                 localStorage.setItem('saveAccount', JSON.stringify([]));
             }
-            ELEMENT_SIGN_IN_SUCCESS.style.display = 'block'
-            ELEMENT_BTN_SIGN_UP.style.display   = 'none'
-            ELEMENT_BTN_SIGN_IN.style.display   = 'none'
-            ELEMENT_USER.style.display          = 'block'
-            ELEMENT_SHOW_NAME_USER.innerText    = checkName.name
-            if(checkName.avatar){
+        ELEMENT_SIGN_IN_SUCCESS.style.display = 'block'
+        ELEMENT_BTN_SIGN_UP.style.display   = 'none'
+        ELEMENT_BTN_SIGN_IN.style.display   = 'none'
+        ELEMENT_USER.style.display          = 'block'
+        ELEMENT_SHOW_NAME_USER.innerText    = checkName.name
+
+            if(checkName.avatar) {
                 ELEMENT_AVATAR.src                  = checkName.avatar 
                 ELEMENT_AVATAR_HOME.src             = checkName.avatar 
                 ELEMENT_AVATAR_COMMENT.src          = checkName.avatar
             }
             localStorage.setItem('login', JSON.stringify({user :checkName.name , pass : checkName.password, avatar: checkName.avatar }))
             location.reload()
+        } else {
+            // nhập sai mật khẩu
+            ELEMENT_SIGN_IN_FAIL.style.display  = 'block'
         }
     } else if (ELEMENT_NAME_INPUT.value == '' || ELEMENT_PASSWORD_INPUT.value == '') {
         ELEMENT_SIGN_IN_NULL.style.display  = 'block'

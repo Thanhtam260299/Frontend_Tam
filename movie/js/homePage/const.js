@@ -17,6 +17,7 @@ let     ELEMENT_SLIDE_SHOW                  = document.querySelectorAll(".home__
         dotPage                             = document.querySelectorAll('.dot-page'),
         ELEMENT_HOME_PAGE                   = document.getElementById('home-page'),
         ELEMENT_PER_PAGE                    = document.getElementById('per-page'),
+        video                               = document.querySelector('iframe #video'),
         items                               = document.querySelectorAll('.slide-nominated-link');
         ELEMENT_SHOW_FAVOURITE              = document.querySelector('.grid-favourite');
 
@@ -26,10 +27,14 @@ let     GENRE_RENDER                        = document.querySelectorAll('.genre-
         ODD_RENDER                          = document.querySelector('.odd-render');
         MOVIE_COMING                        = document.querySelectorAll('.movie-coming');
         TOP_VIEW                            = document.querySelector('.top-view__list-items');
+        CHANGE_PAGE                         = document.querySelector('.change-page');
+        OPEN_CHANGE_PAGE                    = document.querySelector('.change-page-grounp');
+        CHANGE_PAGE_HEADER                  = document.querySelector('.change-page-header');
         ITEM_GENRE                          = document.querySelector('.menu-items--genre');
         ITEM_COUNTRY                        = document.querySelector('.menu-items--country');
         FAVOURITE_RENDER                    = document.querySelector('.favourite');
         ELEMENT_ERR_COMMENT                 = document.querySelector('.err-comment');
+        ELEMENT_WATCHED                     = document.querySelector('.menu-items--watched');
 
         //render page
 let     ELEMENT_ITEM_NAME_1                 = document.getElementById('nav-bar__item-name'),
@@ -39,6 +44,7 @@ let     ELEMENT_ITEM_NAME_1                 = document.getElementById('nav-bar__
         ELEMENT_MOVIE                       = document.getElementById('source-movie'),
         ELEMENT_BTN_HOME                    = document.querySelectorAll('.btn-home'),
         ELEMENT_BTN_FAVOURITE               = document.querySelector('.btn-favourite'),
+        ELEMENT_BTN_SEARCH                  = document.querySelector('.form-search i'),
         children1,
         childrenName;  
         
@@ -46,6 +52,8 @@ let     LIST_COMMENT                        = document.querySelector('.comment__
         BTN_SUBMIT                          = document.querySelector('.submit'),
         INPUT_COMMENT                       = document.querySelector('.input'),
         ELEMENT_HEADER_GENRE                = document.querySelector('.item__link-genre'),
+        ELEMENT_HOME_ACTIVE                 = document.querySelector('.navbar__select-home'),
+        ELEMENT_LIST_ITEMS_NAVBAR           = document.querySelectorAll('.header__navbar-item '),
         comment                             = '',
         nameUser                            = '',
         avatarUser                          = '';
@@ -58,9 +66,8 @@ let     elItemMovie,
         indexItemMovie,
         genreHeader;
 
-let     ICON_RATING                         = document.querySelectorAll('.icon__rating'),
-        video                               = document.getElementById("video");
-
+let     ICON_RATING                         = document.querySelectorAll('.icon__rating');
+var     loader                              = document.querySelector(".preloader");
 let     k = 0,
         a = 0;
 
@@ -70,10 +77,12 @@ let     arrDataContent,
         dataMovieSerie,
         dataTopView,
         dataMovieComing,
+        arrDataImg,
         movieInfo;
 
 let     arrFavourite            = [];
-
+let     arrWatched              = [];
+let     arrTotal
 let     arrComment              = [
         {comment : "phim hay quá", 
         nameUser: "Tâm phạm", 
@@ -99,7 +108,6 @@ let     arrListCountry                = [
 const renderData    = async (x, url, clas) => {
     let arrData     = '',
         dataContent = '',
-        arrDataImg  = '',
         xhtml = '',
         item,
         numImg,
@@ -108,7 +116,7 @@ const renderData    = async (x, url, clas) => {
     
     // fet api data show home page
     try {
-        let response      = await fetch(url)
+        let response      = await fetch("https://api.themoviedb.org/3/movie/" + url + "/videos?api_key=e9e9d8da18ae29fc430845952232787c&append_to_response=videos")
             arrData       = await response.json()
             arrData       =  arrData.results
     } catch {
@@ -119,7 +127,7 @@ const renderData    = async (x, url, clas) => {
     try {
         let responseImg   = await fetch("https://api.themoviedb.org/3/movie/616037/images?api_key=e9e9d8da18ae29fc430845952232787c&append_to_response=videos")
             arrDataImg    = await responseImg.json()
-            arrDataImg    =  arrDataImg.backdrops
+            arrDataImg    = arrDataImg.backdrops
     } catch {
         console.log('err')
     }
@@ -144,8 +152,8 @@ const renderData    = async (x, url, clas) => {
         dataMovieOrr = arrData
         id_movie = 'id_orr'
     } else if (clas == "series-movie") {
-        numImg = 23
-        numBlock = 14
+        numImg = 18
+        numBlock = 15
         dataMovieSerie = arrData
         id_movie = 'id_serie'
     } else if (clas == ""){
@@ -155,14 +163,13 @@ const renderData    = async (x, url, clas) => {
         id_movie = 'id_coming'
     } 
 
-    for(let n = 0; n < arrData.length - numBlock ; n++) {
+for(let n = 0; n < arrData.length - numBlock ; n++) {
         let checkFavourite = 'none'
         item =  arrData[n]
         if(getDataSaveAccount().user || getLoginLocalstorage().user) {
-            console.log(Boolean(getFavouriteLocalstorage()[0]))
-            if(getFavouriteLocalstorage()[0]) {
-                for(let a = 0; a < getFavouriteLocalstorage().length; a++) {
-                    getFavouriteLocalstorage()[a].id == item.id ? checkFavourite = 'block' : false
+            if(getarrFavouriteLocalstorage()[0]) {
+                for(let a = 0; a < getarrFavouriteLocalstorage().length; a++) {
+                    getarrFavouriteLocalstorage()[a].id == item.id ? checkFavourite = 'block' : false
                 }
             }
         }
@@ -196,7 +203,7 @@ const renderDataTopView    = async (x, url, clas) => {
 
     // fet api data show TopView
     try {
-        let response      = await fetch(url)
+        let response      = await fetch("https://api.themoviedb.org/3/movie/" + url + "/videos?api_key=e9e9d8da18ae29fc430845952232787c&append_to_response=videos")
             arrData       = await response.json()
             arrData       =  arrData.results
     } catch {
@@ -228,9 +235,9 @@ const renderDataTopView    = async (x, url, clas) => {
         let checkFavourite = 'none'
         item =  arrData[n]
         if(getDataSaveAccount().user || getLoginLocalstorage().user) {
-            if(getFavouriteLocalstorage()[0]) {
-                for(let a = 0; a < getFavouriteLocalstorage().length; a++) {
-                    getFavouriteLocalstorage()[a].id == item.id ? checkFavourite = 'block' : false
+            if(getarrFavouriteLocalstorage()[0]) {
+                for(let a = 0; a < getarrFavouriteLocalstorage().length; a++) {
+                    getarrFavouriteLocalstorage()[a].id == item.id ? checkFavourite = 'block' : false
                 }
             }
         }
@@ -284,7 +291,5 @@ const renderItemsGenre = (x, arr) => {
     x.innerHTML = xhtml 
 }
 
-                
-            
     
 

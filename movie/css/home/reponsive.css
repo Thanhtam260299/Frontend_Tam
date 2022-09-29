@@ -28,10 +28,6 @@
         padding-left: 19px;
     }
 
-    i.fa-solid.fa-house-chimney {
-        margin-right: 10px;
-    }
-
     /* ******* */
 
     .wide .row {
@@ -184,7 +180,12 @@
     }
 }
 
-    
+@media (min-width: 1023px) {
+    .header__icon--sign-in, .header__icon--sign-up {
+        display: block;
+    }
+}
+
 /* Tablet - PC low resolution */
 @media (max-width: 1023px) {
     
@@ -233,6 +234,11 @@
         align-items: center;
     }
 
+    .change-page-grounp{
+        margin-top: 80px;
+        min-height: 400px;
+    }
+
     .home {
         margin-top: 85.5px !important;
     }
@@ -273,8 +279,9 @@
         transition: 0.1s ease;
     }
 
+    .navbar__select-trailer a,
     .navbar__select-movie--icon {
-        justify-content: end;
+        justify-content: end!important;
         flex-direction: row-reverse;
     }
 
@@ -305,7 +312,7 @@
     .header__navbar-cover ul.header__navbar-list li:hover {
         cursor: pointer;
         opacity: 1;
-        color: #00acc1;
+        color: var(--text-color-main);
         background-color: rgb(74 89 118 / 69%);
     }
 
@@ -487,6 +494,10 @@
 
     .list-series-movie a {
         width: 50%;
+    }
+
+    .change-page-grounp {
+        margin-top: 80px;
     }
 
     .header__slide-nominated-movie {
