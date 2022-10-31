@@ -1,0 +1,43 @@
+.wrapper {
+  width: 100%;
+  position: relative;
+  padding: 1.6rem 0;
+  margin-bottom: 46px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0.4rem;
+    right: 0.4rem;
+    height: 0.5px;
+    background-color: rgba(22, 24, 35, 0.12);
+  }
+
+  .wrapperItem {
+    margin-bottom: 0.8rem;
+    margin-left: 0.8rem;
+  }
+}
+
+.footer,
+.item {
+  color: rgba(22, 24, 35, 0.5);
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 17px;
+  display: inline-block;
+  margin-right: 6px;
+  margin-top: 5px;
+}
+
+.item:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 1000px) {
+  .wrapper {
+    display: none;
+  }
+}

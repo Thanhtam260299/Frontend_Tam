@@ -1,0 +1,85 @@
+//menu
+.search-result {
+  position: relative;
+  margin-right: -2rem;
+  margin-top: -0.2rem;
+  width: 224px;
+  background-color: transparent;
+  box-shadow: rgb(0 0 0 / 12%) 0px 4px 16px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    right: 22px;
+    transform: translateY(-100%);
+    border-width: 1rem;
+    border-style: solid;
+    border-color: transparent transparent rgb(255, 255, 255) transparent;
+  }
+}
+
+.menu-popper {
+  padding-bottom: 8px !important;
+}
+
+.menuMore {
+  padding: 11px 16px !important;
+  min-width: 180px;
+}
+
+.menuShare {
+  width: 280px !important;
+}
+
+.menu-item {
+  width: 100%;
+  justify-content: flex-start;
+  margin-left: 0 !important;
+  font-size: 1.6rem;
+  font-weight: 400;
+  padding: 1.1rem 1rem 1.1rem 1.6rem;
+  background-color: white;
+  border-radius: 0;
+
+  &:hover {
+    background: rgba(22, 24, 35, 0.03);
+  }
+}
+
+.inner-menu-popper {
+  max-height: 590px;
+  overflow: hidden;
+
+  &:hover {
+    overflow-y: auto;
+  }
+}
+
+//header menu
+.header {
+  margin-top: -0.8rem;
+  position: relative;
+}
+
+.btn-back {
+  background-color: transparent;
+  position: absolute;
+  top: 50%;
+  left: 25px;
+  transform: translateY(-50%);
+  font-size: 1.6rem;
+}
+
+.header-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  height: 50px;
+  align-items: center;
+}
+
+.separate {
+  border-top: 1px solid #e4e4e4;
+}

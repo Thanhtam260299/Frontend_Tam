@@ -1,0 +1,80 @@
+.wrapper {
+  --search-border-radius: 92px;
+  --search-top-spacer: 9px;
+  --search-height: 46px;
+  --search-button-width: 52px;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 99999;
+  width: 100%;
+  height: 60px;
+  box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
+  background-color: white;
+}
+
+.inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem 0 2.4rem;
+  width: var(--Layout-header-width);
+  height: 100%;
+}
+
+.logo {
+  display: flex;
+  cursor: pointer;
+}
+
+//action
+
+.action {
+  display: flex;
+  align-items: center;
+}
+
+.upload {
+  padding: 0.6rem 1.5rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.action-more,
+.login-btn {
+  cursor: pointer;
+}
+
+.login-btn {
+  padding: 0.6rem 1.5rem;
+  background-color: var(--primary);
+  color: white;
+  border-radius: 0.5rem;
+}
+
+.action-more {
+  margin-left: 1.2rem;
+  font-size: 2rem;
+  padding: 0.4rem 1rem;
+  background-color: transparent;
+}
+
+// action when login
+
+.avatar-user {
+  width: 3.2rem;
+  height: 3.2rem;
+  margin-left: 2.4rem;
+  border-radius: 50%;
+}
+
+.action-item {
+  font-size: 2rem;
+  margin-left: 2rem;
+  margin-top: 0.5rem;
+  background-color: transparent;
+}

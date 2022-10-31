@@ -1,0 +1,33 @@
+.wrapper {
+  position: relative;
+  padding: 1.6rem 0;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0.4rem;
+    right: 0.4rem;
+    height: 0.5px;
+    background-color: rgba(22, 24, 35, 0.12);
+  }
+
+  .header {
+    color: rgba(22, 24, 35, 0.5);
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+    font-weight: 500;
+    padding: 0 0.4rem;
+  }
+
+  .button {
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .wrapper {
+    display: none;
+  }
+}

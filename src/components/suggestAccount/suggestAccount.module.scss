@@ -1,0 +1,91 @@
+.wrapper {
+  position: relative;
+  padding: 1.6rem 0;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0.4rem;
+    right: 0.4rem;
+    height: 0.5px;
+    background-color: rgba(22, 24, 35, 0.12);
+  }
+}
+
+.header {
+  padding: 0 8px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-family: var(--font-family);
+  line-height: 20px;
+  font-weight: 600;
+  color: rgba(22, 24, 35, 0.75);
+}
+
+.account-item {
+  display: flex;
+  align-items: center;
+  padding: 0.55rem;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(22, 24, 35, 0.03);
+  }
+}
+
+.account-image {
+  width: 32px;
+  height: 32px;
+  margin-right: 1.2rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.nickname {
+  font-family: SofiaPro, sans-serif;
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 2.2rem;
+  max-width: 260px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.icon {
+  font-size: 1.5rem;
+  margin-left: 0.4rem;
+  margin-bottom: 0.3rem;
+  color: var(--color-icon-check);
+}
+.account-name {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+  max-width: 260px;
+  color: rgba(22, 24, 35, 0.75);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.footer {
+  color: var(--primary);
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 1.4rem;
+  line-height: 2rem;
+  padding: 0px 0.8rem;
+  margin-top: 0.8rem;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1000px) {
+  .account-content,
+  .header,
+  .footer {
+    display: none;
+  }
+}

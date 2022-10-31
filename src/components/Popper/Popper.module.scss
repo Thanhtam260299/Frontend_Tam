@@ -1,0 +1,36 @@
+.wrapper {
+  width: 100%;
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+  border-radius: 0.8rem;
+  background: rgb(255, 255, 255);
+  box-shadow: rgb(0 0 0 / 12%) 0px 2px 12px;
+}
+.menuMore {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    right: 10px;
+    transform: translateY(-100%);
+    border-width: 1rem;
+    border-style: solid;
+    border-color: transparent transparent rgb(255, 255, 255) transparent;
+  }
+}
+.shareMore {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    right: 10px;
+    transform: translateY(-100%);
+    border-width: 1rem;
+    border-style: solid;
+    border-color: transparent transparent rgb(255, 255, 255) transparent;
+  }
+}

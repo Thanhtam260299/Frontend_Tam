@@ -1,0 +1,128 @@
+.wrapper {
+  display: flex;
+  padding: 20px 0;
+  position: relative;
+  min-width: 500px;
+  max-width: 692px;
+  margin: 0 1.6rem;
+  border-bottom: 0.5px solid #e8e8ea;
+}
+
+.avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.content {
+  margin-left: 1.2rem;
+}
+
+.text-info-content {
+  .name-info {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    .nickname {
+      font-family: var(--font-SofiaPro), sans-serif;
+      font-weight: 700;
+      font-size: 1.8rem;
+      line-height: 2.5rem;
+      margin-right: 0.4rem;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .icon {
+      margin-left: 0.4rem;
+      font-size: 1.4rem;
+      color: var(--color-icon-check);
+    }
+
+    .name {
+      font-family: var(--font-family), sans-serif;
+      font-weight: 400;
+      font-size: 1.4rem;
+      display: inline-block;
+      line-height: 2.8rem;
+      margin-left: 0.4rem;
+      margin-bottom: -6px;
+      cursor: pointer;
+    }
+  }
+  .description {
+    margin-top: 0.5rem;
+    font-weight: 400;
+    line-height: 2.2rem;
+    font-size: 1.6rem;
+  }
+
+  .button {
+    position: absolute;
+    top: 28px;
+    right: 0;
+  }
+
+  .title-video {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+    margin-top: 0.4rem;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    p {
+      margin-left: 0.6rem;
+    }
+  }
+}
+
+.video-content {
+  margin-top: 1.2rem;
+  display: flex;
+  align-items: flex-end;
+  .video-inner {
+    width: 287px;
+    height: 512px;
+    margin-right: 2rem;
+    border-radius: 0.8rem;
+    overflow: hidden;
+    .video {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .action-items {
+    .item {
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      .icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0.8rem 0;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background-color: rgba(22, 24, 35, 0.06);
+      }
+
+      .count {
+        color: rgba(22, 24, 35, 0.75);
+        font-size: 1.2rem;
+        line-height: 1.7rem;
+        text-align: center;
+      }
+    }
+  }
+}

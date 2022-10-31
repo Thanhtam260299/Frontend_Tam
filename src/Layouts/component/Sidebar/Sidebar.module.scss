@@ -1,0 +1,54 @@
+.wrapper {
+  position: relative;
+  width: 356px;
+  transition: all 0.1s linear;
+}
+.inner {
+  position: fixed;
+  top: 0;
+  width: 348px;
+  height: 100%;
+  margin-top: 6.1rem;
+  padding: 0 0 2.6rem 1.2rem;
+  z-index: 9;
+  background-color: white;
+
+  overscroll-behavior-y: contain;
+  perspective: 1px;
+  overflow-y: auto;
+  transition: all 0.1s linear;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
+  &:hover {
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(22, 24, 35, 0.06);
+    }
+  }
+}
+
+.large {
+  width: 232px;
+}
+
+@media screen and (max-width: 1000px) {
+  .wrapper,
+  .inner {
+    width: 72px;
+  }
+
+  .wrapper {
+    border-right: 1px solid rgba(22, 24, 35, 0.12);
+    box-shadow: 0px 2px 8px rgb(0 0 0 / 6%);
+    text-align: center;
+  }
+  .inner {
+    overflow-y: unset;
+    padding: 0 1.2rem 2.6rem 1.2rem;
+  }
+}

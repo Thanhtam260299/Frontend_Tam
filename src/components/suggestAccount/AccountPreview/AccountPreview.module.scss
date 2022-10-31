@@ -1,0 +1,82 @@
+.wrapper {
+  padding: 1.4rem 2rem;
+  width: 320px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.2rem;
+  .image {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .button {
+    width: 106px;
+    height: 34px;
+    cursor: pointer;
+  }
+}
+
+.title {
+  line-height: 2rem;
+  .content-title {
+    font-size: 1.8rem;
+    font-family: var(--font-SofiaPro);
+    cursor: pointer;
+  }
+
+  .icon-title {
+    font-size: 1.5rem;
+    margin-left: 0.4rem;
+    margin-bottom: 0.3rem;
+    color: var(--color-icon-check);
+  }
+}
+
+.nickName {
+  display: inline-block;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.4rem;
+  line-height: 1.68rem;
+  font-family: var(--font-family);
+  color: rgb(22, 24, 35);
+}
+
+.interactive {
+  margin-top: 0.8rem;
+  font-size: 1.7rem;
+  font-family: var(--font-family);
+
+  .fllower-count,
+  .like-count {
+    font-weight: 700;
+    margin-right: 0.6rem;
+    font-size: 1.7rem;
+    line-height: 2rem;
+  }
+
+  .fllower,
+  .like {
+    margin-right: 1.2rem;
+    color: rgba(22, 24, 35, 0.75);
+    font-size: 1.7rem;
+    line-height: 2rem;
+    font-weight: 500;
+  }
+}
+
+.bio {
+  font-size: 1.4rem;
+  line-height: 2rem;
+  font-weight: 500;
+  font-family: var(--font-family);
+  padding-top: 1.6rem;
+  margin-top: 1.6rem;
+  border-top: 1px solid rgba(22, 24, 35, 0.12);
+}

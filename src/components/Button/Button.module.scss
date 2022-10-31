@@ -1,0 +1,141 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.6rem;
+  font-weight: 700;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  user-select: none;
+  line-height: 2rem;
+  min-width: 100px;
+  padding: 0.7rem 1rem;
+  border: 1px solid transparent;
+
+  + .wrapper {
+    margin-left: 1.6rem;
+  }
+
+  .icon {
+    min-width: 18px;
+    display: flex;
+    align-items: center;
+  }
+
+  .title {
+    font-family: var(--font-family), sans-serif;
+    font-weight: 600;
+  }
+}
+
+.title + .icon,
+.icon + .title {
+  margin-left: 0.8rem;
+}
+
+.primary {
+  background-color: var(--primary);
+  color: rgba(255, 255, 255, 1);
+
+  &:hover {
+    border-color: var(--primary);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)),
+      #fe2c55;
+  }
+}
+.href {
+  font-weight: 700;
+  line-height: 2rem;
+  min-width: 110px;
+  border: 1px solid #e3e3e4;
+  border-radius: 0.2rem;
+  color: var(--text-color);
+
+  &:hover {
+    background-color: rgba(22, 24, 35, 0.03);
+  }
+}
+
+.text {
+  border: none;
+  border-radius: none;
+}
+
+.hagTag {
+  max-width: 100%;
+  padding: 0.2rem 1rem;
+  margin-bottom: 1.2rem;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  border-radius: 12px;
+  color: rgba(22, 24, 35, 0.75);
+  border: 1px solid rgba(22, 24, 35, 0.2);
+  background-color: white;
+
+  &:hover {
+    background-color: rgba(22, 24, 35, 0.03);
+  }
+
+  .title {
+    font-weight: 400;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .icon {
+    color: rgba(22, 24, 35, 1);
+  }
+  &:nth-child(1) {
+    margin-right: 0.8rem;
+  }
+
+  + .hagTag {
+    margin-left: 0;
+    margin-right: 0.8rem;
+  }
+}
+
+.outLine {
+  background-color: transparent;
+  border-radius: 0.4rem;
+  color: var(--primary);
+  border: 1px solid;
+  padding: 3px 0;
+  min-width: 88px;
+
+  &:hover {
+    background-color: rgba(254, 44, 85, 0.06);
+  }
+}
+
+.logIn {
+  font-size: 1.8rem;
+  font-weight: 800;
+  padding: 1.3rem 0;
+  width: 100%;
+  max-width: 324px;
+  margin: 0 auto;
+}
+
+.FormLogIn {
+  position: relative;
+  font-size: 1.5rem;
+  font-weight: 600;
+  width: 375px;
+  margin-bottom: 1.6rem;
+  padding: 11px 0;
+  background-color: transparent;
+  border: 1px solid rgba(22, 24, 35, 0.12);
+  border-radius: 0;
+
+  + .FormLogIn {
+    margin-left: 0;
+  }
+  .icon {
+    position: absolute;
+    top: 50%;
+    left: 6px;
+    transform: translateY(-50%);
+    margin-left: 8px;
+  }
+}
