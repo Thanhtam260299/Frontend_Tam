@@ -1,6 +1,13 @@
 import ListItemsHome from "~/components/listItemsHome";
+import GoToHome from "../../../components/goToHome/GoToHome";
+
 function Home() {
-  return <ListItemsHome />;
+  return (
+    <div>
+      <ListItemsHome />
+      {/* <GoToHome /> */}
+    </div>
+  );
 }
 
 export default Home;

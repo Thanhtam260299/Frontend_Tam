@@ -1,4 +1,5 @@
 import classNames from "classnames/bind";
+import { useNavigate } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
@@ -19,6 +20,8 @@ import {
 const cx = classNames.bind(styles);
 
 function ItemHome({ data }) {
+  const navigate = useNavigate();
+
   const renderPreview = (props) => {
     return (
       <div tabIndex="-1" {...props}>
@@ -30,7 +33,13 @@ function ItemHome({ data }) {
       </div>
     );
   };
- 
+  console.log(data);
+
+  const handleNavigate = () => {
+    navigate("/@" + data.user.nickname);
+    window.scrollTo(0, 0);
+  };
+
   return (
     <div className={cx("wrapper")}>
       <div>
@@ -43,6 +52,7 @@ function ItemHome({ data }) {
         >
           <div>
             <Image
+              onClick={handleNavigate}
               className={cx("avatar")}
               alt={data.user.nickname}
               src={data.user.avatar}
@@ -61,7 +71,9 @@ function ItemHome({ data }) {
                 placement="bottom"
                 render={renderPreview}
               >
-                <h3 className={cx("nickname")}>{data.user.nickname}</h3>
+                <h3 className={cx("nickname")} onClick={handleNavigate}>
+                  {data.user.nickname}
+                </h3>
               </Tippy>
             </div>
             {data.user.tick && (

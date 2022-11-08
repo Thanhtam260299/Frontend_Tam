@@ -57,7 +57,6 @@ const data = [
 ];
 function FormLogIn() {
   const activeForm = useContext(ActiveContext);
-  console.log(activeForm);
   const handleCloseForm = () => {
     activeForm.toggleActive();
   };

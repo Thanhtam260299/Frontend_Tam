@@ -5,6 +5,7 @@ import Tippy from "@tippyjs/react/headless";
 import "tippy.js/dist/tippy.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 
 import { Wrapper as PopperWrapper } from "~/components/Popper";
 import Image from "~/components/Image";
@@ -12,6 +13,8 @@ import AccountPreview from "./AccountPreview";
 const cx = classNames.bind(styles);
 
 function AccountItem({ data }) {
+  const navigate = useNavigate();
+
   const renderPreview = (props) => {
     return (
       <div tabIndex="-1" {...props}>
@@ -22,6 +25,11 @@ function AccountItem({ data }) {
         </div>
       </div>
     );
+  };
+
+  const handleNavigate = () => {
+    navigate("/@" + data.nickname);
+    window.scrollTo(0, 0);
   };
 
   return (
@@ -36,7 +44,7 @@ function AccountItem({ data }) {
         zIndex="9999"
         render={renderPreview}
       >
-        <div className={cx("account-item")}>
+        <div className={cx("account-item")} onClick={handleNavigate}>
           <Image
             className={cx("account-image")}
             src={data.avatar}

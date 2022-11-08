@@ -149,26 +149,30 @@ function ProfilePage() {
             </div>
           )}
           <div className={cx("header-right")}>
-            <Tippy 
-              interactive
-              placement="bottom"
-              offset={[-120, 0]}
-              render={renderSharePreview}
-            >
-              <div>
-                <ShareIconOutLine className={cx("header-right-icon")} />
-              </div>
-            </Tippy>
-            <Tippy
-              interactive
-              placement="bottom"
-              offset={[-70, 0]}
-              render={renderPreview}
-            >
-              <div>
-                <MoreIcon className={cx("header-right-icon")} />
-              </div>
-            </Tippy>
+            <div>
+              <Tippy
+                interactive
+                placement="bottom"
+                offset={[-120, 0]}
+                render={renderSharePreview}
+              >
+                <div>
+                  <ShareIconOutLine className={cx("header-right-icon")} />
+                </div>
+              </Tippy>
+            </div>
+            <div>
+              <Tippy
+                interactive
+                placement="bottom"
+                offset={[-70, 0]}
+                render={renderPreview}
+              >
+                <div>
+                  <MoreIcon className={cx("header-right-icon")} />
+                </div>
+              </Tippy>
+            </div>
           </div>
         </div>
       </div>

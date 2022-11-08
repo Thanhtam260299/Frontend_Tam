@@ -20,7 +20,6 @@ import LogIn from "./LogIn";
 const cx = classNames.bind(styles);
 
 function Sidebar({ large, activeSideBar }) {
-  console.log(activeSideBar);
   return (
     <div
       className={cx("wrapper", {
